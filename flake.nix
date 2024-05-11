@@ -7,12 +7,13 @@
 		disko.inputs.nixpkgs.follows = "nixpkgs";
 		home-manager.url = "github:nix-community/home-manager/release-23.11";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+		hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 	};
 
 	outputs = { self, nixpkgs, disko, home-manager, ...}@inputs: {
 		nixosConfigurations.GLaDOS = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
-			specialArgs.inputs = inputs;
+			specialArgs = { inherit inputs; };
 			modules = [
 				./configuration.nix
 				disko.nixosModules.disko

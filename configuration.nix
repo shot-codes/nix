@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -12,6 +12,8 @@
     ];
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
+nix.settings.substituters = ["https://hyprland.cachix.org"];
+nix.settings.trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -34,6 +36,12 @@ users.users.shot = {
 	isNormalUser = true;
 	extraGroups = [ "networkmanager" "wheel" ];
 };
+
+programs.hyprland = { 
+	enable = true;
+	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+};
+
 
 
   # networking.hostName = "nixos"; # Define your hostname.
