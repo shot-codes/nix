@@ -30,7 +30,6 @@ hardware.pulseaudio.enable = true;
 environment.systemPackages = with pkgs; [
 	git
 	vim
-	lemurs
 ];
 
 services.greetd = {
@@ -63,6 +62,13 @@ programs.hyprland = {
 	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 };
 
+programs.zsh.enable = true;
+users.defaultUserShell = pkgs.zsh;
+
+hardware.tuxedo-rs = {
+	enable = true;
+	tailor-gui.enable = true;
+};
 
 
   # networking.hostName = "nixos"; # Define your hostname.

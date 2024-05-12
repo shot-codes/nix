@@ -21,6 +21,14 @@
 	};
 
 	programs.firefox.enable = true;
+	
+	programs.neovim = {
+		enable = true;
+		defaultEditor = true;
+		extraPackages = with pkgs; [
+			gcc
+		];
+	};
 
 	wayland.windowManager.hyprland.enable = true;
 	wayland.windowManager.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -31,6 +39,18 @@
 			"$mod, Return, exec, kitty"
 			"$mod, f, exec, firefox"
 		];
+		"general" = {
+			"sensitivity" = 3.0;
+			"gaps_in" = 2;
+		};
+		"input" = {
+			"repeat_rate" = 60;
+			"repeat_delay" = 300;
+			"touchpad" = {
+				"natural_scroll" = true;
+				"clickfinger_behavior" = true;
+			};
+		};
 	};
 
 	home.stateVersion = "23.11";
