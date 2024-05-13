@@ -20,6 +20,7 @@
 		enable = true;
     extraConfig = ''
 		window_padding_width 4
+		enable_audio_bell no
 
 		foreground              #cecece
 		background              #000000
@@ -80,10 +81,28 @@
 		bind = [
 			"$mod, Return, exec, kitty"
 			"$mod, f, exec, firefox"
+			"$mod, Q, killactive"
+			"$mod, V, togglefloating"
+			"$mod, S, togglesplit"
+			"$mod, H, movefocus, l"
+			"$mod, L, movefocus, r"
+			"$mod, K, movefocus, u"
+			"$mod, J, movefocus, d"
+			"$mod ALT, H, movewindow, l"
+			"$mod ALT, L, movewindow, r"
+			"$mod ALT, K, movewindow, u"
+			"$mod ALT, J, movewindow, d"
+		];
+		binde = [
+			"$mod SHIFT, L, resizeactive, 40 0"
+			"$mod SHIFT, H, resizeactive, -40 0"
+			"$mod SHIFT, J, resizeactive, 0 40"
+			"$mod SHIFT, K, resizeactive, 0 -40"
 		];
 		"general" = {
 			"sensitivity" = 3.0;
 			"gaps_in" = 2;
+			"gaps_out" = 0;
 		};
 		"input" = {
 			"repeat_rate" = 60;
@@ -97,8 +116,8 @@
 			"rounding" = 5;
 		};
 		"misc" = {
-				"disable_hyprland_logo" = true;
-			};
+			"disable_hyprland_logo" = true;
+		};
 	};
 	wayland.windowManager.hyprland.extraConfig = ''
 		animations {
