@@ -23,7 +23,7 @@
       "$mod ALT, L, movewindow, r"
       "$mod ALT, K, movewindow, u"
       "$mod ALT, J, movewindow, d"
-	  "$mod, SPACE, exec, tofi-drun --drun-launch=true"
+      "$mod, SPACE, exec, tofi-drun --drun-launch=true"
     ];
     binde = [
       "$mod SHIFT, L, resizeactive, 40 0"

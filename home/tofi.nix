@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       anchor = "bottom";
-	  font = "monospace";
+      font = "monospace";
       horizontal = true;
       font-size = 9;
       padding-top = 4;
