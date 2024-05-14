@@ -11,7 +11,7 @@
     ./neovim.nix
     ./starship.nix
     ./firefox.nix
-    ./zoxide.nix
+	./waybar.nix
   ];
 
   home.username = "shot";
