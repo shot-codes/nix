@@ -8,6 +8,28 @@
 		neofetch
 	];
 
+	programs.zsh = {
+        enable = true;
+        enableCompletion = false; # enabled in oh-my-zsh
+        initExtra = ''
+		  eval "$(starship init zsh)"
+		  eval "$(zoxide init zsh)"
+        '';
+        shellAliases = {
+			vi = "nvim";
+        #  ne = "nix-env";
+        #  ni = "nix-env -iA";
+        #  no = "nixops";
+        #  ns = "nix-shell --pure";
+        #  please = "sudo";
+        };
+        oh-my-zsh = {
+          enable = true;
+          plugins = [ "git" "systemd" "rsync" "kubectl" ];
+          theme = "terminalparty";
+        };
+	};
+
 	programs.starship = {
 		enable = true;
 		settings = {
