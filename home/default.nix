@@ -12,6 +12,7 @@
     ./starship.nix
     ./firefox.nix
     ./waybar.nix
+    ./tofi.nix
   ];
 
   home.username = "shot";
