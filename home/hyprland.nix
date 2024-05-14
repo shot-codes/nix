@@ -24,15 +24,16 @@
       "$mod ALT, K, movewindow, u"
       "$mod ALT, J, movewindow, d"
       "$mod, SPACE, exec, tofi-drun --drun-launch=true"
-	  "$mod, 1, workspace, 1"
-	  "$mod, 2, workspace, 2"
-	  "$mod, 3, workspace, 3"
-	  "$mod, 4, workspace, 4"
-	  "$mod, 5, workspace, 5"
-	  "$mod, 6, workspace, 6"
-	  "$mod, 7, workspace, 7"
-	  "$mod, 8, workspace, 8"
-	  "$mod, 9, workspace, 9"
+      "$mod SHIFT, SPACE, exec, tofi-drun | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
+      "$mod, 1, workspace, 1"
+      "$mod, 2, workspace, 2"
+      "$mod, 3, workspace, 3"
+      "$mod, 4, workspace, 4"
+      "$mod, 5, workspace, 5"
+      "$mod, 6, workspace, 6"
+      "$mod, 7, workspace, 7"
+      "$mod, 8, workspace, 8"
+      "$mod, 9, workspace, 9"
     ];
     binde = [
       "$mod SHIFT, L, resizeactive, 40 0"
@@ -40,10 +41,10 @@
       "$mod SHIFT, J, resizeactive, 0 40"
       "$mod SHIFT, K, resizeactive, 0 -40"
     ];
-	bindm = [
-		"$mod, mouse:272, movewindow"
-		"$mod, mouse:273, resizewindow"
-	];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
     general = {
       "sensitivity" = 3.0;
       "gaps_in" = 2;
