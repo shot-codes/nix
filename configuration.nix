@@ -30,7 +30,6 @@
   environment.systemPackages = with pkgs; [
   	git
   	vim
-    neovide
   ];
 
   fonts = {
