@@ -15,12 +15,9 @@
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
-				./configuration.nix
+				./system/default.nix
 				disko.nixosModules.disko
-				./disk-config.nix
-				{
-					_module.args.disks= ["/dev/nvme0n1"];
-				}
+				./disk-config.nix { _module.args.disks = ["/dev/nvme0n1"]; }
 				home-manager.nixosModules.home-manager
 				{
 					home-manager.extraSpecialArgs = { inherit inputs; };
