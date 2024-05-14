@@ -83,6 +83,7 @@
   };
   
   programs.zsh.enable = true;
+  programs.zsh.autosuggestions.enable = true;
   users.defaultUserShell = pkgs.zsh;
   
   hardware.tuxedo-rs = {

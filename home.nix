@@ -16,6 +16,8 @@
 		};
 	};
 
+	programs.zoxide.enable = true;
+
 	programs.kitty = {
 		enable = true;
     extraConfig = ''
