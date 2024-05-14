@@ -6,6 +6,7 @@
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   wayland.windowManager.hyprland.settings = {
+    "exec-once" = "waybar";
     "monitor" = "eDP-1,2560x1600@240.00301,0x0,1";
     "$mod" = "SUPER";
     bind = [
