@@ -13,6 +13,7 @@
     ./tuxedo.nix
     ./fonts.nix
     ./nvidia.nix
+    ./docker.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

@@ -6,7 +6,8 @@
 }: {
   imports = [
     ./zsh.nix
-    ./hyprland.nix
+    ./hypr/hyprland.nix
+    ./hypr/hyprpaper.nix
     ./kitty.nix
     ./neovim.nix
     ./starship.nix
@@ -19,6 +20,7 @@
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
     neofetch
+    swww
   ];
 
   programs.home-manager.enable = true;
