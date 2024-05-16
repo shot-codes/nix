@@ -19,10 +19,10 @@
   home.username = "shot";
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
-    neofetch
     swww
   ];
 
+  programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
 
   home.stateVersion = "23.11";

@@ -33,6 +33,7 @@
   environment.systemPackages = with pkgs; [
     git
     vim
+    gnumake
   ];
 
   users.users.shot = {

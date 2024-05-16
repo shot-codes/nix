@@ -10,9 +10,73 @@
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
     settings = {
-      exec-once = "waybar";
+      exec-once = "waybar & swww-daemon --format xrgb";
       monitor = "eDP-1,2560x1600@240.00301,0x0,1";
       "$mod" = "SUPER";
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          enable_gesture = false;
+          workspace_method = "first 1";
+        };
+      };
+      general = {
+        border_part_of_window = 0;
+        sensitivity = 3.0;
+        gaps_in = 10;
+        gaps_out = 40;
+        border_size = 0;
+        "col.inactive_border" = "0x00000000";
+        "col.active_border" = "0xffffffff";
+      };
+      input = {
+        repeat_rate = 60;
+        repeat_delay = 300;
+        touchpad = {
+          natural_scroll = true;
+          clickfinger_behavior = true;
+        };
+      };
+      dwindle = {
+        preserve_split = true;
+      };
+      decoration = {
+        rounding = 8;
+        active_opacity = 0.9;
+        inactive_opacity = 0.7;
+        drop_shadow = true;
+        shadow_range = 4;
+        blur = {
+          enabled = true;
+          size = 12;
+          ignore_opacity = true;
+          passes = 3;
+          popups = true;
+          xray = true;
+        };
+      };
+      misc = {
+        disable_hyprland_logo = true;
+      };
+      binde = [
+        "$mod SHIFT, L, resizeactive, 40 0"
+        "$mod SHIFT, H, resizeactive, -40 0"
+        "$mod SHIFT, J, resizeactive, 0 40"
+        "$mod SHIFT, K, resizeactive, 0 -40"
+      ];
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+      "$w1" = "swww img ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w2" = "swww img ~/.config/nixos/media/wallpapers/windmills.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w3" = "swww img ~/.config/nixos/media/wallpapers/store.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w4" = "swww img ~/.config/nixos/media/wallpapers/girl-smoking.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w5" = "swww img ~/.config/nixos/media/wallpapers/feeling-collide-va-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w6" = "swww img ~/.config/nixos/media/wallpapers/cityscape-buildings-5k-hn-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w7" = "swww img ~/.config/nixos/media/wallpapers/palm-trees-cabriolet-minimal-gt-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w8" = "swww img ~/.config/nixos/media/wallpapers/toyota-explorer-in-nature-embrace-br-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w9" = "swww img ~/.config/nixos/media/wallpapers/pepe-ascii-art-xr-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
@@ -28,6 +92,7 @@
         "$mod ALT, J, movewindow, d"
         "$mod, SPACE, exec, tofi-drun --drun-launch=true"
         "$mod SHIFT, SPACE, exec, tofi-drun | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
+        "$mod, grave, hyprexpo:expo, toggle"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
@@ -37,75 +102,49 @@
         "$mod, 7, workspace, 7"
         "$mod, 8, workspace, 8"
         "$mod, 9, workspace, 9"
-        "$mod, grave, hyprexpo:expo, toggle"
-        "$mod, 1, exec, swww img ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg --transition-step 8 --transition-fps 120"
-        "$mod, 2, exec, swww img ~/.config/nixos/media/wallpapers/windmills.jpg --transition-step 8 --transition-fps 120"
+        "$mod SHIFT, 1, movetoworkspace, 1"
+        "$mod SHIFT, 2, movetoworkspace, 2"
+        "$mod SHIFT, 3, movetoworkspace, 3"
+        "$mod SHIFT, 4, movetoworkspace, 4"
+        "$mod SHIFT, 5, movetoworkspace, 5"
+        "$mod SHIFT, 6, movetoworkspace, 6"
+        "$mod SHIFT, 7, movetoworkspace, 7"
+        "$mod SHIFT, 8, movetoworkspace, 8"
+        "$mod SHIFT, 9, movetoworkspace, 9"
+        "$mod, 1, exec, $w1"
+        "$mod, 2, exec, $w2"
+        "$mod, 3, exec, $w3"
+        "$mod, 4, exec, $w4"
+        "$mod, 5, exec, $w5"
+        "$mod, 6, exec, $w6"
+        "$mod, 7, exec, $w7"
+        "$mod, 8, exec, $w8"
+        "$mod, 9, exec, $w9"
+        "$mod SHIFT, 1, exec, $w1"
+        "$mod SHIFT, 2, exec, $w2"
+        "$mod SHIFT, 3, exec, $w3"
+        "$mod SHIFT, 4, exec, $w4"
+        "$mod SHIFT, 5, exec, $w5"
+        "$mod SHIFT, 6, exec, $w6"
+        "$mod SHIFT, 7, exec, $w7"
+        "$mod SHIFT, 8, exec, $w8"
+        "$mod SHIFT, 9, exec, $w9"
       ];
-      binde = [
-        "$mod SHIFT, L, resizeactive, 40 0"
-        "$mod SHIFT, H, resizeactive, -40 0"
-        "$mod SHIFT, J, resizeactive, 0 40"
-        "$mod SHIFT, K, resizeactive, 0 -40"
-      ];
-      bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          enable_gesture = false;
-          workspace_method = "first 1";
-        };
-      };
-      general = {
-        border_part_of_window = 0;
-        sensitivity = 3.0;
-        gaps_in = 10;
-        gaps_out = 40;
-        border_size = 2;
-        "col.inactive_border" = "0x00000000";
-        "col.active_border" = "0xffffffff";
-      };
-      input = {
-        repeat_rate = 60;
-        repeat_delay = 300;
-        touchpad = {
-          natural_scroll = true;
-          clickfinger_behavior = true;
-        };
-      };
-      decoration = {
-        rounding = 8;
-        active_opacity = 0.9;
-        inactive_opacity = 0.7;
-        drop_shadow = true;
-        shadow_range = 4;
-        blur = {
-          enabled = true;
-          size = 12;
-          passes = 3;
-          ignore_opacity = true;
-          popups = true;
-          xray = true;
-        };
-      };
-      misc = {
-        disable_hyprland_logo = true;
-      };
     };
     extraConfig = ''
-      animations {
-          enabled = yes
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.0
-          bezier = myBezier2, 0.0, 0.1, 0.0, 1.0
-          animation = windows, 1, 3, myBezier
-          animation = windowsOut, 1, 3, default, popin 80%
-          animation = border, 1, 20, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-      	animation = workspaces, 0, 2, myBezier2
-      }
+      monitor = DP-1,2560x1440@59.95,2560x0,1
+           animations {
+               enabled = yes
+               bezier = myBezier, 0.05, 0.9, 0.1, 1.0
+               bezier = myBezier2, 0.0, 0.1, 0.0, 1.0
+               animation = windows, 1, 3, myBezier
+               animation = windowsOut, 1, 3, default, popin 80%
+               animation = border, 1, 20, default
+               animation = borderangle, 1, 8, default
+               animation = fade, 1, 7, default
+           	animation = workspaces, 1, 2, myBezier2
+           }
+        windowrulev2 = noborder, onworkspace:w[t1]
     '';
   };
 }
