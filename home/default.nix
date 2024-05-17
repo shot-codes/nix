@@ -7,7 +7,7 @@
   imports = [
     ./zsh.nix
     ./hypr/hyprland.nix
-    ./hypr/hyprpaper.nix
+    #./hypr/hyprpaper.nix
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
     ./kitty.nix
@@ -16,12 +16,15 @@
     ./firefox.nix
     ./waybar.nix
     ./tofi.nix
+    ./gtk.nix
   ];
 
   home.username = "shot";
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
     swww
+    blender
+    glib
   ];
 
   programs.fastfetch.enable = true;

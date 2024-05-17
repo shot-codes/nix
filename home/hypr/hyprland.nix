@@ -11,8 +11,10 @@
     ];
     settings = {
       exec-once = "waybar & swww-daemon --format xrgb";
-      monitor = "eDP-1,2560x1600@240.00301,0x0,1";
-      "$mod" = "SUPER";
+      monitor = [
+        "eDP-1,2560x1600@240.00301,0x0,1"
+        "DP-1,2560x1440@59.95,2560x0,1"
+      ];
       plugin = {
         hyprexpo = {
           columns = 3;
@@ -58,6 +60,27 @@
       misc = {
         disable_hyprland_logo = true;
       };
+      windowrulev2 = [
+        "noborder, onworkspace:w[t1]"
+      ];
+      animations = {
+        enabled = true;
+        bezier = [
+          "bezier1, 0.05, 0.9, 0.1, 1.0"
+          "bezier2, 0.0, 0.1, 0.0, 1.0"
+        ];
+        animation = [
+          "windows, 1, 3, bezier1"
+          "windowsOut, 1, 3, default, popin 80%"
+          "border, 1, 20, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 2, bezier2"
+        ];
+      };
+
+      # Bindings
+      "$mod" = "SUPER";
       binde = [
         "$mod SHIFT, L, resizeactive, 40 0"
         "$mod SHIFT, H, resizeactive, -40 0"
@@ -131,20 +154,5 @@
         "$mod SHIFT, 9, exec, $w9"
       ];
     };
-    extraConfig = ''
-      monitor = DP-1,2560x1440@59.95,2560x0,1
-           animations {
-               enabled = yes
-               bezier = myBezier, 0.05, 0.9, 0.1, 1.0
-               bezier = myBezier2, 0.0, 0.1, 0.0, 1.0
-               animation = windows, 1, 3, myBezier
-               animation = windowsOut, 1, 3, default, popin 80%
-               animation = border, 1, 20, default
-               animation = borderangle, 1, 8, default
-               animation = fade, 1, 7, default
-           	animation = workspaces, 1, 2, myBezier2
-           }
-        windowrulev2 = noborder, onworkspace:w[t1]
-    '';
   };
 }
