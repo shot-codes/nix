@@ -1,4 +1,14 @@
 {...}: {
+  xdg.desktopEntries = {
+    blender = {
+      name = "Blender";
+      genericName = "3D Modeling";
+      exec = "blender";
+      terminal = false;
+      categories = ["Graphics" "3DGraphics"];
+    };
+  };
+
   programs.tofi = {
     enable = true;
     settings = {

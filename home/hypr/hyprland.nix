@@ -25,8 +25,8 @@
       general = {
         border_part_of_window = 0;
         sensitivity = 3.0;
-        gaps_in = 10;
-        gaps_out = 40;
+        gaps_in = 15;
+        gaps_out = 45;
         border_size = 0;
         "col.inactive_border" = "0x00000000";
         "col.active_border" = "0x5effffff";
@@ -93,28 +93,29 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-      "$w1" = "swww img ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w2" = "swww img ~/.config/nixos/media/wallpapers/windmills.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w3" = "swww img ~/.config/nixos/media/wallpapers/store.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w4" = "swww img ~/.config/nixos/media/wallpapers/girl-smoking.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w5" = "swww img ~/.config/nixos/media/wallpapers/feeling-collide-va-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w6" = "swww img ~/.config/nixos/media/wallpapers/cityscape-buildings-5k-hn-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w7" = "swww img ~/.config/nixos/media/wallpapers/palm-trees-cabriolet-minimal-gt-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w8" = "swww img ~/.config/nixos/media/wallpapers/toyota-explorer-in-nature-embrace-br-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
-      "$w9" = "swww img ~/.config/nixos/media/wallpapers/pepe-ascii-art-xr-2560x1600.jpg --transition-step 10 --transition-duration 3 --transition-fps 60";
+      "$w1" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg";
+      "$w2" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/windmills.jpg";
+      "$w3" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/store.jpg";
+      "$w4" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/girl-smoking.jpg";
+      "$w5" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/feeling-collide-va-2560x1600.jpg";
+      "$w6" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/cityscape-buildings-5k-hn-2560x1600.jpg";
+      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/palm-trees-cabriolet-minimal-gt-2560x1600.jpg";
+      "$w8" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/toyota-explorer-in-nature-embrace-br-2560x1600.jpg";
+      "$w9" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/pepe-ascii-art-xr-2560x1600.jpg";
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, S, togglesplit"
         "$mod, P, pseudo"
-        "$mod CTRL SHIFT, F, fakefullscreen"
-        "CTRL SHIFT, F, fullscreen"
+        "$mod, F, fullscreen"
+        "$mod SHIFT, F, fakefullscreen"
         " , XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         " , XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         " , XF86AudioMute, exec, pamixer --toggle-mute"
         " , XF86AudioLowerVolume, exec, pamixer --decrease 10"
         " , XF86AudioRaiseVolume, exec, pamixer --increase 10"
+        "$mod SHIFT, G, exec, /home/shot/.config/nixos/home/hypr/scripts/toggle_gaps/toggle_gaps.sh"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
