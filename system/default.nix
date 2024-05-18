@@ -34,6 +34,8 @@
     git
     vim
     gnumake
+    pamixer
+    brightnessctl
   ];
 
   users.users.shot = {

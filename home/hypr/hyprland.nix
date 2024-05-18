@@ -29,7 +29,7 @@
         gaps_out = 40;
         border_size = 0;
         "col.inactive_border" = "0x00000000";
-        "col.active_border" = "0xffffffff";
+        "col.active_border" = "0x5effffff";
       };
       input = {
         repeat_rate = 60;
@@ -47,7 +47,9 @@
         active_opacity = 0.9;
         inactive_opacity = 0.7;
         drop_shadow = true;
-        shadow_range = 4;
+        shadow_range = 6;
+        shadow_render_power = 2;
+        "col.shadow" = "0x44000000";
         blur = {
           enabled = true;
           size = 12;
@@ -105,6 +107,14 @@
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, S, togglesplit"
+        "$mod, P, pseudo"
+        "$mod CTRL SHIFT, F, fakefullscreen"
+        "CTRL SHIFT, F, fullscreen"
+        " , XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        " , XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        " , XF86AudioMute, exec, pamixer --toggle-mute"
+        " , XF86AudioLowerVolume, exec, pamixer --decrease 10"
+        " , XF86AudioRaiseVolume, exec, pamixer --increase 10"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"
