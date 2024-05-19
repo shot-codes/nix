@@ -121,6 +121,7 @@
         " , XF86AudioLowerVolume, exec, pamixer --decrease 10"
         " , XF86AudioRaiseVolume, exec, pamixer --increase 10"
         "$mod SHIFT, G, exec, /home/shot/.config/nixos/home/hypr/scripts/toggle_gaps/toggle_gaps.sh"
+        "$mod SHIFT, T, exec, /home/shot/.config/nixos/home/hypr/scripts/toggle_theme.sh"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"

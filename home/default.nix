@@ -31,7 +31,6 @@
   programs.home-manager.enable = true;
 
   services.copyq.enable = true;
-  services.darkman.enable = true;
 
   home.stateVersion = "23.11";
 }
