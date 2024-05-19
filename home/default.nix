@@ -24,6 +24,8 @@
     swww
     blender
     wl-clipboard
+    just
+    trezor-suite
   ];
 
   programs.fastfetch.enable = true;

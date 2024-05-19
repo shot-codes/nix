@@ -14,6 +14,7 @@
     ./fonts.nix
     ./nvidia.nix
     ./docker.nix
+    ./trezor.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
