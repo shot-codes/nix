@@ -24,11 +24,14 @@
   home.packages = with pkgs; [
     swww
     blender
-    glib
+    wl-clipboard
   ];
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
+
+  services.copyq.enable = true;
+  services.darkman.enable = true;
 
   home.stateVersion = "23.11";
 }

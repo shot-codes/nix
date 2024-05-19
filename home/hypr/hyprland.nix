@@ -10,7 +10,7 @@
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
     settings = {
-      exec-once = "waybar & swww-daemon --format xrgb";
+      exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
         "DP-1,2560x1440@59.95,2560x0,1"
@@ -62,9 +62,6 @@
       misc = {
         disable_hyprland_logo = true;
       };
-      windowrulev2 = [
-        "noborder, onworkspace:w[t1]"
-      ];
       animations = {
         enabled = true;
         bezier = [
@@ -74,12 +71,18 @@
         animation = [
           "windows, 1, 3, bezier1"
           "windowsOut, 1, 3, default, popin 80%"
-          "border, 1, 20, default"
+          "border, 1, 10, default"
           "borderangle, 1, 8, default"
           "fade, 1, 7, default"
           "workspaces, 1, 2, bezier2"
         ];
       };
+      windowrule = [
+        "float, title:CopyQ"
+      ];
+      windowrulev2 = [
+        "noborder, onworkspace:w[t1]"
+      ];
 
       # Bindings
       "$mod" = "SUPER";
@@ -107,7 +110,9 @@
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, S, togglesplit"
+        "$mod, O, toggleopaque"
         "$mod, P, pseudo"
+        "$mod, C, exec, copyq toggle"
         "$mod, F, fullscreen"
         "$mod SHIFT, F, fakefullscreen"
         " , XF86MonBrightnessDown, exec, brightnessctl set 10%-"

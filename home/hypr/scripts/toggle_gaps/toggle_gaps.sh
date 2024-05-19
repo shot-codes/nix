@@ -11,7 +11,7 @@ if [ "$GAPS_STATE" == "enabled" ]; then
 	hyprctl keyword decoration:rounding 0
 	hyprctl keyword general:border_size 3
 	hyprctl keyword general:col.active_border "rgba(ffa100ff) rgba(ff2a00ee) 45deg"
-	hyprctl keyword general:col.inactive_border "rgba(000000ff)"
+	hyprctl keyword general:col.inactive_border "rgba(202020ff)"
 	hyprctl keyword decoration:active_opacity 1.0
 	hyprctl keyword decoration:inactive_opacity 1.0
 	hyprctl keyword decoration:blur:enabled false

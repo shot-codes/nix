@@ -8,6 +8,7 @@
     '';
     shellAliases = {
       vi = "nvim";
+      fastfetch = "fastfetch --logo ~/.config/nixos/media/fastfetch/skull.txt";
       #  ne = "nix-env";
       #  ni = "nix-env -iA";
       #  no = "nixops";

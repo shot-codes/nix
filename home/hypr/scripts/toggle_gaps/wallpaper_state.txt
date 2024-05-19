@@ -1,1 +1,1 @@
-/home/shot/.config/nixos/media/wallpapers/windmills.jpg
+/home/shot/.config/nixos/media/wallpapers/store.jpg
