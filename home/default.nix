@@ -12,7 +12,6 @@
     ./hypr/hypridle.nix
     ./kitty.nix
     ./neovim.nix
-    ./starship.nix
     ./firefox.nix
     ./waybar.nix
     ./tofi.nix
