@@ -28,8 +28,9 @@
         gaps_in = 15;
         gaps_out = 45;
         border_size = 0;
-        "col.inactive_border" = "0x00000000";
-        "col.active_border" = "0x5effffff";
+        "col.inactive_border" = "rgba(00000000)";
+        # "col.active_border" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
+        "col.active_border" = "rgba(00000000)";
       };
       input = {
         repeat_rate = 60;
