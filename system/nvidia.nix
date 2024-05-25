@@ -1,11 +1,20 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # For Broadwell (2015) or newer processors. LIBVA_DRIVER_NAME=iHD
+    ];
   };
+  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
+
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {

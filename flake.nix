@@ -16,6 +16,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -23,9 +27,14 @@
     nixpkgs,
     disko,
     home-manager,
+    nixvim,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_65-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+
     nixosConfigurations.GLaDOS = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};

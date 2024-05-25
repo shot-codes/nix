@@ -13,7 +13,9 @@
       exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
-        "DP-1,2560x1440@59.95,2560x0,1"
+        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,2560x160,1"
+        "desc:Samsung Electric Company C34H89x H4ZT900993, 3440x1440@99.98200, 2560x-800, 1"
+        # "DP-1,2560x1440@59.95,2560x0,1"
       ];
       plugin = {
         hyprexpo = {
@@ -27,10 +29,9 @@
         sensitivity = 3.0;
         gaps_in = 15;
         gaps_out = 45;
-        border_size = 0;
+        border_size = 3;
         "col.inactive_border" = "rgba(00000000)";
-        # "col.active_border" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
-        "col.active_border" = "rgba(00000000)";
+        "col.active_border" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
       };
       input = {
         repeat_rate = 60;

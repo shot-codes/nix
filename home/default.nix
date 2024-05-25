@@ -11,11 +11,12 @@
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
     ./kitty.nix
-    ./neovim.nix
+    ./neovim
     ./firefox.nix
     ./waybar.nix
     ./tofi.nix
     ./gtk.nix
+    ./vscode.nix
   ];
 
   home.username = "shot";
