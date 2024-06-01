@@ -1,3 +1,11 @@
+# Todos
+# - lsp for python, react/next
+# - formatting for  python, rust, react/next
+# - auto close brackets
+# - yank highlight
+# - indent lines
+# - auto indent?
+# - autcompletion?
 {
   pkgs,
   inputs,
@@ -12,6 +20,18 @@
     defaultEditor = true;
     colorscheme = "alabaster";
     clipboard.register = "unnamedplus";
+
+    keymaps = import ./keymaps.nix;
+
+    opts = {
+      number = true;
+      shiftwidth = 4;
+      expandtab = true;
+      tabstop = 4;
+      relativenumber = true;
+      termguicolors = true;
+      signcolumn = "no";
+    };
 
     globals = {
       mapleader = " ";
@@ -29,20 +49,111 @@
       })
     ];
 
-    keymaps = [
-      {
-        mode = "i";
-        action = "<Esc>";
-        key = "jk";
-        options = {
-          noremap = true;
-          silent = true;
-        };
-      }
-    ];
-
     plugins = {
+      lualine = {
+        enable = true;
+        componentSeparators = {
+          left = "|";
+          right = "|";
+        };
+        sectionSeparators = {
+          left = "";
+          right = "";
+        };
+      };
       telescope.enable = true;
+      treesitter.enable = true;
+      noice.enable = true;
+      neo-tree = {
+        enable = true;
+      };
+      conform-nvim = {
+        enable = true;
+        formattersByFt = {
+          svelte = ["prettier"];
+          typsecript = ["prettier"];
+          javascript = ["prettier"];
+          python = ["ruff_organize_imports" "ruff_format"];
+          rust = ["rust-fmt"];
+          nix = ["alejandra"];
+        };
+      };
+      lsp = {
+        enable = true;
+        servers = {
+          nil_ls.enable = true;
+          svelte.enable = true;
+          tsserver.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installRustc = true;
+            installCargo = true;
+          };
+        };
+        keymaps = {
+          diagnostic = {
+            "[d" = {
+              action = "goto_prev";
+              desc = "Go to prev diagnostic";
+            };
+            "]d" = {
+              action = "goto_next";
+              desc = "Go to next diagnostic";
+            };
+            "<leader>ld" = {
+              action = "open_float";
+              desc = "Show Line Diagnostics";
+            };
+          };
+
+          lspBuf = {
+            "<leader>ca" = {
+              action = "code_action";
+              desc = "Code Actions";
+            };
+            "<leader>rn" = {
+              action = "rename";
+              desc = "Rename Symbol";
+            };
+            "<leader>f" = {
+              action = "format";
+              desc = "Format";
+            };
+            "gd" = {
+              action = "definition";
+              desc = "Goto definition (assignment)";
+            };
+            "gD" = {
+              action = "declaration";
+              desc = "Goto declaration (first occurrence)";
+            };
+            "gy" = {
+              action = "type_definition";
+              desc = "Goto Type Defition";
+            };
+            "gi" = {
+              action = "implementation";
+              desc = "Goto Implementation";
+            };
+            "<leader>K" = {
+              action = "hover";
+              desc = "Hover";
+            };
+            "<leader>sh" = {
+              action = "signature_help";
+              desc = "Signature Help";
+            };
+            "<leader>gr" = {
+              action = "references";
+              desc = "References to thing";
+            };
+            "<leader>vws" = {
+              action = "workspace_symbol";
+              desc = "Workspace symbol";
+            };
+          };
+        };
+      };
       harpoon = {
         enable = true;
         enableTelescope = true;
