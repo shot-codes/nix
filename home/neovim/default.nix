@@ -1,11 +1,8 @@
 # Todos
-# - lsp for python, react/next
-# - formatting for  python, rust, react/next
-# - auto close brackets
+# - lsp for react/next
+# - formatting for react/next
 # - yank highlight
-# - indent lines
-# - auto indent?
-# - autcompletion?
+# - auto-complete super tab not working in some languages
 {
   pkgs,
   inputs,
@@ -13,6 +10,8 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    ./completion.nix
+    ./keymaps.nix
   ];
   programs.nixvim = {
     enable = true;
@@ -21,8 +20,6 @@
     colorscheme = "alabaster";
     clipboard.register = "unnamedplus";
 
-    keymaps = import ./keymaps.nix;
-
     opts = {
       number = true;
       shiftwidth = 4;
@@ -30,11 +27,7 @@
       tabstop = 4;
       relativenumber = true;
       termguicolors = true;
-      signcolumn = "no";
-    };
-
-    globals = {
-      mapleader = " ";
+      signcolumn = "yes";
     };
 
     extraPlugins = [
@@ -50,6 +43,25 @@
     ];
 
     plugins = {
+      treesitter-context.enable = true;
+      mini = {
+        enable = true;
+        modules = {
+          indentscope = {
+            symbol = "▏";
+          };
+        };
+      };
+      gitsigns.enable = true;
+      indent-blankline = {
+        enable = true;
+        settings = {
+          indent = {
+            char = "▏";
+            tab_char = "▏";
+          };
+        };
+      };
       lualine = {
         enable = true;
         componentSeparators = {
@@ -84,6 +96,7 @@
           nil_ls.enable = true;
           svelte.enable = true;
           tsserver.enable = true;
+          ruff.enable = true;
           rust-analyzer = {
             enable = true;
             installRustc = true;
