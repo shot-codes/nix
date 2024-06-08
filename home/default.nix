@@ -22,6 +22,7 @@
     wl-clipboard
     just
     trezor-suite
+    trezord
   ];
 
   programs.fastfetch.enable = true;

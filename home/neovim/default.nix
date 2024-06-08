@@ -13,6 +13,10 @@
     ./completion.nix
     ./keymaps.nix
   ];
+  home.packages = with pkgs; [
+    ripgrep
+  ];
+
   programs.nixvim = {
     enable = true;
     viAlias = true;
@@ -28,6 +32,7 @@
       relativenumber = true;
       termguicolors = true;
       signcolumn = "yes";
+      wrap = false;
     };
 
     extraPlugins = [
@@ -73,7 +78,13 @@
           right = "";
         };
       };
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fg" = "live_grep";
+          "<leader>ff" = "find_files";
+        };
+      };
       treesitter.enable = true;
       noice.enable = true;
       neo-tree = {
@@ -105,6 +116,10 @@
         };
         keymaps = {
           diagnostic = {
+            "<leader>cd" = {
+              action = "open_float";
+              desc = "Line Diagnostics";
+            };
             "[d" = {
               action = "goto_prev";
               desc = "Go to prev diagnostic";
@@ -128,7 +143,7 @@
               action = "rename";
               desc = "Rename Symbol";
             };
-            "<leader>f" = {
+            "<leader>fm" = {
               action = "format";
               desc = "Format";
             };

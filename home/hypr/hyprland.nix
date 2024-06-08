@@ -85,7 +85,12 @@
       windowrulev2 = [
         "noborder, onworkspace:w[t1]"
       ];
-
+      blurls = [
+        "waybar"
+      ];
+      layerrule = [
+        "xray,waybar"
+      ];
       # Bindings
       "$mod" = "SUPER";
       binde = [

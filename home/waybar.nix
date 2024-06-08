@@ -111,7 +111,7 @@
             }
 
             window#waybar {
-                background-color: rgba(0, 0, 0, 1.0);
+                background-color: rgba(0, 0, 0, 0.3);
                 color: #cccccc;
                 transition-property: background-color;
                 transition-duration: .5s;
@@ -143,7 +143,7 @@
 
             #workspaces button {
               color: #cccccc;
-              padding: 4px 0px;
+              padding: 4px 1px 4px 2px;
             }
 
             #workspaces button:hover {
@@ -172,10 +172,10 @@
             #custom-swaylock,
             #idle_inhibitor {
             	border-left-style: solid;
-            	border-left-width: 2px;
-            	border-left-color: #303030;
+            	border-left-width: 0px;
+            	border-left-color: rgba(0, 0, 0, 0.5);
             	margin: 0px 0px;
-            	padding-left: 8px;
+            	padding-left: 10px;
             	padding-right:5px;
             }
 
