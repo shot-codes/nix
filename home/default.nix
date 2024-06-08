@@ -2,7 +2,8 @@
   imports = [
     ./zsh.nix
     ./hypr/hyprland.nix
-    #./hypr/hyprpaper.nix
+    # ./hypr/hyprpaper.nix
+    # ./hypr/hyprcursor.nix
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
     ./kitty.nix
@@ -11,7 +12,6 @@
     ./waybar.nix
     ./tofi.nix
     ./gtk.nix
-    ./vscode.nix
   ];
 
   home.username = "shot";
