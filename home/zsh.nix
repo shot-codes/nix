@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{...}: {
   programs = {
     fzf = {
-        enable = true;
-        enableZshIntegration = true;
+      enable = true;
+      enableZshIntegration = true;
     };
     zsh = {
       enable = true;
@@ -16,10 +16,6 @@
         vi = "nvim";
         fastfetch = "fastfetch --logo ~/.config/nixos/media/fastfetch/skull.txt";
         drnv = "echo 'use flake' >> .envrc && direnv allow";
-        #  ne = "nix-env";
-        #  ni = "nix-env -iA";
-        #  no = "nixops";
-        #  ns = "nix-shell --pure";
       };
       oh-my-zsh = {
         enable = true;
