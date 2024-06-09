@@ -14,7 +14,7 @@ else
 	kitten themes --reload-in=all --cache-age=-1 --config-file-name /home/shot/.config/kitty/theme.conf Alabaster Custom
 	dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
 	dconf write /org/gnome/desktop/interface/gtk-theme "'Materia-light-compact'"
-	hyprctl keyword general:col.active_border "rgba(00000000)"
-	# hyprctl keyword general:col.active_border "rgba(00a1ffff) rgba(002aeeee) 45deg"
+	# hyprctl keyword general:col.active_border "rgba(00000000)"
+	hyprctl keyword general:col.active_border "rgba(00f1ffff) rgba(002cffee) 45deg"
 	for f in /run/user/1000/nvim.*; do nvim --server "$f" --headless --remote-expr 'execute("set background=light")' &>/dev/null; done
 fi

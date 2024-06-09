@@ -16,7 +16,7 @@
       # Neotree
       {
         mode = "n";
-        key = "<leader>e";
+        key = "<C-e>";
         action = ''
           <cmd>lua require("neo-tree.command").execute({ toggle = true })<cr>
         '';

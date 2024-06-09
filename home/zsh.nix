@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   programs = {
+    fzf = {
+        enable = true;
+        enableZshIntegration = true;
+    };
     zsh = {
       enable = true;
       enableCompletion = false; # enabled in oh-my-zsh
