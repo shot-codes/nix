@@ -24,6 +24,10 @@
           workspace_method = "first 1";
         };
       };
+      env = [
+        "XCURSOR_THEME,phinger-cursors"
+        "XCURSOR_SIZE,24"
+      ];
       general = {
         border_part_of_window = 0;
         sensitivity = 3.0;

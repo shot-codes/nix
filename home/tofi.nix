@@ -1,13 +1,15 @@
-{pkgs, ...}: {
-  # xdg.desktopEntries = {
-  #   blender = {
-  #     name = "Blender";
-  #     genericName = "3D Modeling";
-  #     exec = "blender";
-  #     terminal = false;
-  #     categories = ["Graphics" "3DGraphics"];
-  #   };
-  # };
+{
+  config,
+  lib,
+  ...
+}: {
+  home.activation = {
+    # https://github.com/philj56/tofi/issues/115#issuecomment-1701748297
+    regenerateTofiCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      tofi_cache=${config.xdg.cacheHome}/tofi-drun
+      [[ -f "$tofi_cache" ]] && rm "$tofi_cache"
+    '';
+  };
 
   programs.tofi = {
     enable = true;

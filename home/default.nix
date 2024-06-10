@@ -1,14 +1,9 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./zsh.nix
     ./hypr/hyprland.nix
     # ./hypr/hyprpaper.nix
-    # ./hypr/hyprcursor.nix
+    ./hypr/hyprcursor.nix
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
     ./kitty.nix
@@ -31,13 +26,6 @@
     telegram-desktop
   ];
 
-  home.activation = {
-    # https://github.com/philj56/tofi/issues/115#issuecomment-1701748297
-    regenerateTofiCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      tofi_cache=${config.xdg.cacheHome}/tofi-drun
-      [[ -f "$tofi_cache" ]] && rm "$tofi_cache"
-    '';
-  };
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
 

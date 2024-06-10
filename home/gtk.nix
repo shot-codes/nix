@@ -7,6 +7,11 @@
       name = "Materia-dark-compact";
       package = pkgs.materia-theme;
     };
+    cursorTheme = {
+      name = "phinger-cursors";
+      package = pkgs.phinger-cursors;
+      size = 24;
+    };
   };
 
   dconf.settings."org/gnome/desktop/interface" = {
