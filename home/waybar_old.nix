@@ -102,16 +102,16 @@
       };
     };
     style = ''
-                        * {
+            * {
                 /* `otf-font-awesome` is required to be installed for icons */
                 font-family: Iosevka, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-                font-size: 14px;
-                min-height: 0px;
+                font-size: 13px;
+                min-height: 0;
           padding: 0px;
             }
 
             window#waybar {
-                background-color: rgba(1, 0, 0, 0.0);
+                background-color: rgba(0, 0, 0, 0.3);
                 color: #cccccc;
                 transition-property: background-color;
                 transition-duration: .5s;
@@ -120,21 +120,6 @@
             window#waybar.hidden {
                 opacity: 0.1;
             }
-      
-            .modules-right, .modules-left {
-                background-color: black;
-                border-radius: 6px;
-                margin-bottom: 6px;
-                margin-right: 6px;
-                margin-left: 6px;
-            }
-            /**/
-            /*#workspaces > :last-child {*/
-            /*    border-radius: 0px 6px 6px 0px;*/
-            /*}*/
-            /*#workspaces > :first-child {*/
-            /*    border-radius: 6px 0px 0px 6px;*/
-            /*}*/
 
             button {
                 /* Use box-shadow instead of border so the text isn't offset */
@@ -153,13 +138,12 @@
               transition: none; /* Disable predefined animations */
             }
             #workspaces {
-              padding: 2px;
+              border-radius: 0px;
             }
 
             #workspaces button {
               color: #cccccc;
-              padding: 2px 1px 2px 2px;
-              border-radius: 4px;
+              padding: 4px 1px 4px 2px;
             }
 
             #workspaces button:hover {
@@ -167,7 +151,7 @@
             }
 
             #workspaces button.active {
-                background-color: rgba(50,50,50,1);
+                background-color: rgba(150,150,150,0.2);
             }
 
             #workspaces button.urgent {
@@ -286,6 +270,7 @@
             }
 
             #temperature {
-            }    '';
+            }
+    '';
   };
 }
