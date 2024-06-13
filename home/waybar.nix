@@ -7,6 +7,7 @@
         position = "bottom";
         height = 8;
         spacing = 4;
+        # modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-left = ["hyprland/workspaces"];
         modules-right = ["tray" "pulseaudio" "network" "cpu" "temperature" "memory" "backlight" "battery" "custom/swaylock" "clock" "idle_inhibitor"];
         "hyprland/workspaces" = {
@@ -26,8 +27,12 @@
             "9" = [];
           };
         };
+        "hyprland/window" = {
+            max-length = 800;
+            separate-outputs = true;
+        };
         "custom/swaylock" = {
-          format = "LOCK";
+          format = "LCK";
           on-click = "hyprlock";
           tooltip = false;
         };
@@ -56,10 +61,11 @@
           critical-threshold = 80;
           format-critical = "{temperatureC}°C 🔥";
           format = "{temperatureC}°C";
-          tooltip = "false";
+          tooltip = false;
         };
         backlight = {
           format = "BL {percent}%";
+          tooltip = false;
         };
         battery = {
           states = {
@@ -102,190 +108,222 @@
       };
     };
     style = ''
-                        * {
-                /* `otf-font-awesome` is required to be installed for icons */
-                font-family: Iosevka, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-                font-size: 14px;
-                min-height: 0px;
-          padding: 0px;
-            }
+    
 
-            window#waybar {
-                background-color: rgba(1, 0, 0, 0.0);
-                color: #cccccc;
-                transition-property: background-color;
-                transition-duration: .5s;
-            }
+* {
+          /* `otf-font-awesome` is required to be installed for icons */
+          font-family: Iosevka, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          min-height: 0px;
+    padding: 0px;
+      }
 
-            window#waybar.hidden {
-                opacity: 0.1;
-            }
-      
-            .modules-right, .modules-left {
-                background-color: black;
-                border-radius: 6px;
-                margin-bottom: 6px;
-                margin-right: 6px;
-                margin-left: 6px;
-            }
-            /**/
-            /*#workspaces > :last-child {*/
-            /*    border-radius: 0px 6px 6px 0px;*/
-            /*}*/
-            /*#workspaces > :first-child {*/
-            /*    border-radius: 6px 0px 0px 6px;*/
-            /*}*/
+      window#waybar {
+          background-color: rgba(1, 0, 0, 0.0);
+          color: #aaaaaa;
+          transition-property: background-color;
+          transition-duration: .5s;
+      }
 
-            button {
-                /* Use box-shadow instead of border so the text isn't offset */
-                /* box-shadow: inset 0 -3px transparent; */
-                /* Avoid rounded borders under each button name */
-                background-color: transparent;
-                border-radius: 0px;
-            }
+      window#waybar.hidden {
+          opacity: 0.1;
+      }
+    
+      .modules-right, .modules-left, .modules-center {
+          background-color: black;
+          border-radius: 6px;
+          margin-bottom: 6px;
+          margin-right: 6px;
+          margin-left: 6px;
+      }
+      .modules-left {
+          background-color: rgba(0,0,0,0);
+      }
+      /**/
+      /*#workspaces > :last-child {*/
+      /*    border-radius: 0px 6px 6px 0px;*/
+      /*}*/
+      /*#workspaces > :first-child {*/
+      /*    border-radius: 6px 0px 0px 6px;*/
+      /*}*/
 
-            /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-            #workspaces button:hover {
-              border-color: rgba(0,0,0,0);
-              box-shadow: none; /* Remove predefined box-shadow */
-              text-shadow: none; /* Remove predefined text-shadow */
-              background: none; /* Remove predefined background color (white) */
-              transition: none; /* Disable predefined animations */
-            }
-            #workspaces {
-              padding: 2px;
-            }
+      button {
+          /* Use box-shadow instead of border so the text isn't offset */
+          /* box-shadow: inset 0 -3px transparent; */
+          /* Avoid rounded borders under each button name */
+          background-color: transparent;
+          border-radius: 0px;
+      }
 
-            #workspaces button {
-              color: #cccccc;
-              padding: 2px 1px 2px 2px;
-              border-radius: 4px;
-            }
+      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+      #workspaces button:hover {
+        border-color: rgba(0,0,0,0);
+        box-shadow: none; /* Remove predefined box-shadow */
+        text-shadow: none; /* Remove predefined text-shadow */
+        background: none; /* Remove predefined background color (white) */
+        transition: none; /* Disable predefined animations */
+      }
+      #workspaces {
+        padding: 2px;
+        background-color: black;
+        border-radius: 6px;
+      }
 
-            #workspaces button:hover {
-              background-color: rgba(150,150,150, 0.25);
-            }
+      #window {
+          background-color: black;
+          border-radius: 6px;
+          padding-left: 30px;
+          padding-right: 30px;
+      }
+      #window > * {
+          margin-left: 10px;
+          margin-right: 10px;
+      }
 
-            #workspaces button.active {
-                background-color: rgba(50,50,50,1);
-            }
+      #workspaces button {
+        color: #cccccc;
+        padding: 2px 1px 2px 2px;
+        border-radius: 4px;
+      }
 
-            #workspaces button.urgent {
-                background-color: #eb4d4b;
-            }
+      #workspaces button:hover {
+        background-color: rgba(150,150,150, 0.25);
+      }
 
-            #clock,
-            #battery,
-            #cpu,
-            #memory,
-            #disk,
-            #temperature,
-            #backlight,
-            #network,
-            #pulseaudio,
-            #tray,
-            #mode,
-            #custom-swaylock,
-            #idle_inhibitor {
-            	border-left-style: solid;
-            	border-left-width: 0px;
-            	border-left-color: rgba(0, 0, 0, 0.5);
-            	margin: 0px 0px;
-            	padding-left: 10px;
-            	padding-right:5px;
-            }
+      #workspaces button.active {
+          background-color: rgba(50,50,50,1);
+      }
 
-            #idle_inhibitor {
-            	padding-left: 6px;
-            }
+      #workspaces button.urgent {
+          background-color: #eb4d4b;
+      }
+
+      #clock,
+      #battery,
+      #cpu,
+      #memory,
+      #disk,
+      #temperature,
+      #backlight,
+      #network,
+      #pulseaudio,
+      #tray,
+      #mode,
+      #custom-swaylock,
+      #idle_inhibitor {
+      	border-left-style: solid;
+      	border-left-width: 0px;
+      	border-left-color: rgba(0, 0, 0, 0.5);
+      	margin: 0px 0px;
+      	padding-left: 10px;
+      	padding-right:5px;
+      }
+
+      #idle_inhibitor {
+      	padding-left: 6px;
+        padding-right: 7px;
+        border-radius: 6px;
+        border: 3px solid black;
+      }
       #idle_inhibitor.activated {
-        		background-color: #606060;
-        		color: #4f0000;
+  		background-color: #df0000;
+  		color: #000;
+}
+
+      #pulseaudio {
+
+      }
+      #temperature {
+      	border-left-style: none;
+      	margin-left: -12px;
       }
 
-            #pulseaudio {
-
-            }
-            #temperature {
-            	border-left-style: none;
-            	margin-left: -12px;
-            }
-
-            #window {
-              margin-top: 0px;
-              padding: 0px 0px;
-            }
-
-            /* If workspaces is the leftmost module, omit left margin */
-            .modules-left > widget:first-child > #workspaces {
-                /* margin-left: 8px; */
-            }
-
-            /* If workspaces is the rightmost module, omit right margin */
-            .modules-right > widget:last-child {
-                /* padding-right: 0px; */
-                /* margin-right: 5px; */
-            }
-
-            #clock {
-            }
-
-            #cpu {
-            }
-
-
-            #custom-swaylock {
-            }
-
-            #battery {
-            }
-
-            #battery.charging, #battery.plugged {
-            }
-
-            @keyframes blink {
-              to {
-                color: #000000;
-                }
-            }
-
-            #battery.critical:not(.charging) {
-                color: #ffffff;
-                animation-name: blink;
-                animation-duration: 0.5s;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
-            }
-
-            label:focus {
-            }
-
-            #network.disconnected {
-            }
-
-            #pulseaudio.muted {
-            }
-
-            #temperature.critical {
-            }
-
-      #tray {
-            	border-left-style: none;
+      #window {
+        margin-top: 0px;
+        padding: 0px 0px;
       }
 
-            #tray > .passive {
-              -gtk-icon-effect: dim;
-            }
+      /* If workspaces is the leftmost module, omit left margin */
+      .modules-left > widget:first-child > #workspaces {
+          /* margin-left: 8px; */
+      }
 
-            #tray > .needs-attention {
-              -gtk-icon-effect: highlight;
-            }
+      /* If workspaces is the rightmost module, omit right margin */
+      .modules-right > widget:last-child {
+          /* padding-right: 0px; */
+          /* margin-right: 5px; */
+      }
 
-            #backlight {
-            }
+      #clock {
+      }
 
-            #temperature {
-            }    '';
+      #cpu {
+      }
+
+
+      #custom-swaylock {
+      }
+
+      #battery {
+      }
+
+      #battery.charging, #battery.plugged {
+      }
+
+      @keyframes blink {
+        to {
+          color: #000000;
+          }
+      }
+
+      #battery.critical:not(.charging) {
+          color: #ffffff;
+          animation-name: blink;
+          animation-duration: 0.5s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+      }
+
+      label:focus {
+      }
+
+      #network.disconnected {
+      }
+
+      #pulseaudio.muted {
+      }
+
+      #temperature.critical {
+      }
+
+#tray {
+      	border-left-style: none;
+}
+
+      #tray > .passive {
+        -gtk-icon-effect: dim;
+      }
+
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+      }
+
+      #backlight {
+      }
+
+      #temperature {
+      }
+
+     tooltip {
+        border-radius: 6px;
+        background-color: #000;
+        padding: 1px;
+     }
+     tooltip > * {
+     margin: -2px 4px -2px 4px;
+     color: #aaaaaa;
+     }
+    '';
   };
 }

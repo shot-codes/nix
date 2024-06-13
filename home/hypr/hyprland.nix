@@ -25,7 +25,7 @@
         };
       };
       env = [
-        "XCURSOR_THEME,phinger-cursors"
+        "XCURSOR_THEME,phinger-cursors-dark"
         "XCURSOR_SIZE,24"
       ];
       general = {
