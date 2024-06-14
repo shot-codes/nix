@@ -25,6 +25,7 @@
     trezor-suite
     trezord
     telegram-desktop
+    devenv
   ];
 
   programs.fastfetch.enable = true;

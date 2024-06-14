@@ -48,6 +48,7 @@
     ];
 
     plugins = {
+      yanky.enable = true;
       treesitter-context.enable = true;
       mini = {
         enable = true;

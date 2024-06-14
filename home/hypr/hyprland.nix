@@ -31,7 +31,7 @@
       general = {
         border_part_of_window = 0;
         sensitivity = 3.0;
-        gaps_in = 15;
+        gaps_in = 8;
         gaps_out = 45;
         border_size = 3;
         "col.inactive_border" = "rgba(00000000)";
@@ -113,7 +113,7 @@
       "$w4" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/girl-smoking.jpg";
       "$w5" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/feeling-collide-va-2560x1600.jpg";
       "$w6" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/cityscape-buildings-5k-hn-2560x1600.jpg";
-      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/palm-trees-cabriolet-minimal-gt-2560x1600.jpg";
+      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/good-times-with-good-friend-wg-2560x1600.jpg";
       "$w8" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/toyota-explorer-in-nature-embrace-br-2560x1600.jpg";
       "$w9" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/pepe-ascii-art-xr-2560x1600.jpg";
       bind = [

@@ -21,7 +21,7 @@ if [ "$GAPS_STATE" == "enabled" ]; then
 	echo "disabled" >"$GAPS_STATE_FILE"
 else
 	swww img "$WALLPAPER_STATE" --transition-step 15 --transition-fps 120
-	hyprctl keyword general:gaps_in 15
+	hyprctl keyword general:gaps_in 8
 	hyprctl keyword general:gaps_out 45
 	hyprctl keyword decoration:rounding 8
 	hyprctl keyword general:border_size 3
