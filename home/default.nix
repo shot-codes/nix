@@ -9,8 +9,9 @@
     ./kitty.nix
     ./neovim
     ./firefox.nix
-    ./waybar.nix
-    ./tofi.nix
+    ./waybar_blur.nix
+    # ./tofi.nix
+    ./tofi_blur.nix
     ./gtk.nix
   ];
 

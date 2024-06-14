@@ -90,7 +90,7 @@
         "noborder, onworkspace:w[t1]"
       ];
       blurls = [
-        #   "waybar"
+        "waybar"
       ];
       layerrule = [
         "xray,waybar"
