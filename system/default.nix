@@ -44,6 +44,7 @@
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
   };
+  nix.settings.trusted-users = ["shot"];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 

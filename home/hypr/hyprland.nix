@@ -73,6 +73,7 @@
         bezier = [
           "bezier1, 0.05, 0.9, 0.1, 1.0"
           "bezier2, 0.0, 0.1, 0.0, 1.0"
+          "bezier3, 0.84, 0.21, 1.0, 0.67"
         ];
         animation = [
           "windows, 1, 3, bezier1"
@@ -80,7 +81,7 @@
           "border, 1, 10, default"
           "borderangle, 1, 8, default"
           "fade, 1, 7, default"
-          "workspaces, 1, 2, bezier2"
+          "workspaces, 1, 2, default"
         ];
       };
       windowrule = [
@@ -107,13 +108,13 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-      "$w1" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg";
+      "$w1" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/good-times-with-good-friend-wg-2560x1600.jpg";
       "$w2" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/windmills.jpg";
       "$w3" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/store.jpg";
       "$w4" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/girl-smoking.jpg";
       "$w5" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/feeling-collide-va-2560x1600.jpg";
       "$w6" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/cityscape-buildings-5k-hn-2560x1600.jpg";
-      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/good-times-with-good-friend-wg-2560x1600.jpg";
+      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg";
       "$w8" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/toyota-explorer-in-nature-embrace-br-2560x1600.jpg";
       "$w9" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/pepe-ascii-art-xr-2560x1600.jpg";
       bind = [

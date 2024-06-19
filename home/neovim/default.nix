@@ -100,6 +100,8 @@
           python = ["ruff_organize_imports" "ruff_format"];
           rust = ["rust-fmt"];
           nix = ["alejandra"];
+          json = ["fixjson"];
+          yaml = ["yamlfix"];
         };
       };
       lsp = {
