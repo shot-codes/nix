@@ -28,7 +28,7 @@
         };
         "custom/swaylock" = {
           format = "LOCK";
-          on-click = "hyprlock";
+          on-click = "hyprlock --immediate";
           tooltip = false;
         };
         idle_inhibitor = {

@@ -31,7 +31,7 @@
     nixvim,
     ...
   } @ inputs: let
-    system = "x86_65-linux";
+    system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;

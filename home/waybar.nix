@@ -33,7 +33,7 @@
         };
         "custom/swaylock" = {
           format = "LCK";
-          on-click = "hyprlock";
+          on-click = "hyprlock --immediate";
           tooltip = false;
         };
         idle_inhibitor = {

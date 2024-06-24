@@ -7,7 +7,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
     settings = {
       exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server";
@@ -17,13 +17,13 @@
         "desc:Samsung Electric Company C34H89x H4ZT900993, 3440x1440@99.98200, 2560x-800, 1"
         # "DP-1,2560x1440@59.95,2560x0,1"
       ];
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          enable_gesture = false;
-          workspace_method = "first 1";
-        };
-      };
+      # plugin = {
+      #   hyprexpo = {
+      #     columns = 3;
+      #     enable_gesture = false;
+      #     workspace_method = "first 1";
+      #   };
+      # };
       env = [
         "XCURSOR_THEME,phinger-cursors-dark"
         "XCURSOR_SIZE,24"
@@ -144,7 +144,7 @@
         "$mod ALT, J, movewindow, d"
         "$mod, SPACE, exec, tofi-drun --drun-launch=true"
         "$mod SHIFT, SPACE, exec, tofi-drun | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
-        "$mod, grave, hyprexpo:expo, toggle"
+        # "$mod, grave, hyprexpo:expo, toggle"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"

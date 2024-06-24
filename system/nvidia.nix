@@ -5,10 +5,9 @@
 }: {
   nixpkgs.config.allowUnfree = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver # For Broadwell (2015) or newer processors. LIBVA_DRIVER_NAME=iHD
     ];
