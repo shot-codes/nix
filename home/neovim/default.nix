@@ -48,6 +48,9 @@
     ];
 
     plugins = {
+      ts-autotag = {
+        enable = true;
+      };
       yanky.enable = true;
       treesitter-context.enable = true;
       mini = {
@@ -90,6 +93,9 @@
       noice.enable = true;
       neo-tree = {
         enable = true;
+        window = {
+          position = "float";
+        };
       };
       conform-nvim = {
         enable = true;

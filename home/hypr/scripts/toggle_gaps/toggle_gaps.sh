@@ -17,7 +17,7 @@ if [ "$GAPS_STATE" == "enabled" ]; then
 	hyprctl keyword decoration:blur:enabled false
 	hyprctl keyword decoration:drop_shadow no
 	hyprctl keyword decoration:dim_inactive true
-	hyprctl keyword decoration:dim_strength 0.2
+	hyprctl keyword decoration:dim_strength 0.1
 	echo "disabled" >"$GAPS_STATE_FILE"
 else
 	swww img "$WALLPAPER_STATE" --transition-step 15 --transition-fps 120

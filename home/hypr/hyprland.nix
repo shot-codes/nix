@@ -13,7 +13,7 @@
       exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
-        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,2560x160,1"
+        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"
         "desc:Samsung Electric Company C34H89x H4ZT900993, 3440x1440@99.98200, 2560x-800, 1"
         # "DP-1,2560x1440@59.95,2560x0,1"
       ];
@@ -47,6 +47,17 @@
       };
       dwindle = {
         preserve_split = true;
+      };
+      group = {
+        "col.border_active" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
+        "col.border_inactive" = "rgba(00000000)";
+        groupbar = {
+          height = 50;
+          gradients = false;
+          render_titles = false;
+          "col.active" = "rgba(ffa110ff)";
+          "col.inactive" = "rgba(ffa11055)";
+        };
       };
       decoration = {
         rounding = 8;
@@ -142,6 +153,13 @@
         "$mod ALT, L, movewindow, r"
         "$mod ALT, K, movewindow, u"
         "$mod ALT, J, movewindow, d"
+        "$mod ALT, G, togglegroup"
+        "$mod ALT, Y, movewindoworgroup, l"
+        "$mod ALT, O, movewindoworgroup, r"
+        "$mod ALT, I, movewindoworgroup, u"
+        "$mod ALT, U, movewindoworgroup, d"
+        "$mod CTRL, J, changegroupactive, f"
+        "$mod CTRL, K, changegroupactive, b"
         "$mod, SPACE, exec, tofi-drun --drun-launch=true"
         "$mod SHIFT, SPACE, exec, tofi-drun | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
         # "$mod, grave, hyprexpo:expo, toggle"

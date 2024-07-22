@@ -16,13 +16,31 @@
       # Neotree
       {
         mode = "n";
-        key = "<C-e>";
+        key = "<leader>t";
         action = ''
           <cmd>lua require("neo-tree.command").execute({ toggle = true })<cr>
         '';
       }
 
-      # Window focus
+      # Windows
+      {
+        mode = "n";
+        action = "<C-W>v";
+        key = "<leader>|";
+        options = {
+          desc = "Split Window Right";
+          remap = true;
+        };
+      }
+      {
+        mode = "n";
+        action = "<C-W>s";
+        key = "<leader>-";
+        options = {
+          desc = "Split Window Below";
+          remap = true;
+        };
+      }
       {
         mode = "n";
         action = "<C-w>h";

@@ -26,6 +26,8 @@
     trezord
     telegram-desktop
     devenv
+    gimp
+    thunderbird
   ];
 
   programs.fastfetch.enable = true;
