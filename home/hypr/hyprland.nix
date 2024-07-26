@@ -133,7 +133,7 @@
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, S, togglesplit"
-        "$mod, O, toggleopaque"
+        "$mod, O, exec, hyprctl setprop active opaque toggle"
         "$mod, P, pseudo"
         "$mod, C, exec, copyq toggle"
         "$mod, F, fullscreen"

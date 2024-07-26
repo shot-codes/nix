@@ -21,13 +21,27 @@
   nix.settings.substituters = ["https://hyprland.cachix.org"];
   nix.settings.trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 9;
+      consoleMode = "max";
+      editor = false;
+    };
+    timeout = 0;
+  };
 
   time.timeZone = "Europe/Copenhagen";
   i18n.defaultLocale = "en_US.UTF-8";
-  networking.hostName = "GLaDOS";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "GLaDOS";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [5173];
+    };
+  };
   hardware.pulseaudio.enable = true;
 
   environment.systemPackages = with pkgs; [
