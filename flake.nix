@@ -16,6 +16,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     nixvim = {
       url = "github:nix-community/nixvim";

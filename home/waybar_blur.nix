@@ -14,7 +14,7 @@
           all-outputs = true;
           warp-on-scroll = false;
           format = "{name}";
-          persistent_workspaces = {
+          persistent-workspaces = {
             "1" = [];
             "2" = [];
             "3" = [];

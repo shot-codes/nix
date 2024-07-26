@@ -28,6 +28,7 @@
     devenv
     gimp
     thunderbird
+    devbox
   ];
 
   programs.fastfetch.enable = true;

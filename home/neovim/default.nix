@@ -90,6 +90,7 @@
         };
       };
       treesitter.enable = true;
+      treesitter.settings.highlight.enable = true;
       noice.enable = true;
       neo-tree = {
         enable = true;
