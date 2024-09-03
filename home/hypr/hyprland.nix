@@ -30,7 +30,6 @@
       ];
       general = {
         border_part_of_window = 0;
-        sensitivity = 3.0;
         gaps_in = 8;
         gaps_out = 45;
         border_size = 3;
@@ -38,6 +37,7 @@
         "col.active_border" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
       };
       input = {
+        sensitivity = 1.0;
         repeat_rate = 60;
         repeat_delay = 300;
         touchpad = {
@@ -137,7 +137,7 @@
         "$mod, P, pseudo"
         "$mod, C, exec, copyq toggle"
         "$mod, F, fullscreen"
-        "$mod SHIFT, F, fakefullscreen"
+        "$mod SHIFT, F, fullscreenstate, 0 3"
         " , XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         " , XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         " , XF86AudioMute, exec, pamixer --toggle-mute"

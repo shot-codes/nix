@@ -100,15 +100,17 @@
       };
       conform-nvim = {
         enable = true;
-        formattersByFt = {
-          svelte = ["prettier"];
-          typsecript = ["prettier"];
-          javascript = ["prettier"];
-          python = ["ruff_organize_imports" "ruff_format"];
-          rust = ["rust-fmt"];
-          nix = ["alejandra"];
-          json = ["fixjson"];
-          yaml = ["yamlfix"];
+        settings = {
+          formatters_by_ft = {
+            svelte = ["prettier"];
+            typsecript = ["prettier"];
+            javascript = ["prettier"];
+            python = ["ruff_organize_imports" "ruff_format"];
+            rust = ["rust-fmt"];
+            nix = ["alejandra"];
+            json = ["fixjson"];
+            yaml = ["yamlfix"];
+          };
         };
       };
       lsp = {
