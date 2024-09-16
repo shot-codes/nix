@@ -15,7 +15,7 @@
       shellAliases = {
         vi = "nvim";
         fastfetch = "fastfetch --logo ~/.config/nixos/media/fastfetch/skull.txt";
-        drnv = "echo 'use flake' >> .envrc && direnv allow";
+        ds = "devbox shell";
       };
       oh-my-zsh = {
         enable = true;

@@ -21,11 +21,9 @@
     swww
     blender
     wl-clipboard
-    just
     trezor-suite
     trezord
     telegram-desktop
-    devenv
     gimp
     thunderbird
     devbox

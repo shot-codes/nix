@@ -38,8 +38,12 @@
     hostName = "GLaDOS";
     networkmanager.enable = true;
     firewall = {
-      enable = true;
-      allowedTCPPorts = [5173];
+      enable = false;
+      allowedTCPPorts = [5173 80 443 4040 3000];
+    };
+    hosts = {
+      "192.168.0.24" = ["puzzler"];
+      "192.168.0.102" = ["puzzlerhome"];
     };
   };
   hardware.pulseaudio.enable = true;
