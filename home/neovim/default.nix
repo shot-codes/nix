@@ -73,13 +73,15 @@
       };
       lualine = {
         enable = true;
-        componentSeparators = {
-          left = "|";
-          right = "|";
-        };
-        sectionSeparators = {
-          left = "";
-          right = "";
+        settings.options = {
+          component_separators = {
+            left = "|";
+            right = "|";
+          };
+          section_separators = {
+            left = "";
+            right = "";
+          };
         };
       };
       telescope = {
@@ -118,7 +120,7 @@
         servers = {
           nil-ls.enable = true;
           svelte.enable = true;
-          tsserver.enable = true;
+          ts-ls.enable = true;
           ruff.enable = true;
           rust-analyzer = {
             enable = true;
