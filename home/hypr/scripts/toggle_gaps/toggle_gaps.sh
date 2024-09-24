@@ -6,32 +6,31 @@ WALLPAPER_STATE=$(cat "$WALLPAPER_STATE_FILE")
 
 if [ "$GAPS_STATE" == "enabled" ]; then
 	swww img ~/.config/nixos/media/wallpapers/black.jpg --transition-step 90 --transition-fps 120
-	hyprctl keyword general:gaps_in 0
-	hyprctl keyword general:gaps_out 0
-	hyprctl keyword decoration:rounding 0
-	hyprctl keyword general:border_size 1
-	# hyprctl keyword general:col.active_border "rgba(ffa100ff) rgba(ff2a00ee) 45deg"
-	hyprctl keyword general:col.inactive_border "rgba(303030ff)"
-	hyprctl keyword decoration:active_opacity 1.0
-	hyprctl keyword decoration:inactive_opacity 1.0
-	hyprctl keyword decoration:blur:enabled false
-	hyprctl keyword decoration:drop_shadow no
-	hyprctl keyword decoration:dim_inactive true
-	hyprctl keyword decoration:dim_strength 0.1
+    hyprctl --batch "\
+        keyword decoration:drop_shadow 0;\
+        keyword decoration:blur:enabled 0;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword general:col.inactive_border rgba(303030ff);\
+        keyword decoration:active_opacity 1.0;\
+        keyword decoration:inactive_opacity 1.0;\
+        keyword decoration:dim_inactive true;\
+        keyword decoration:dim_strength 0.1;\
+        keyword decoration:rounding 0"
 	echo "disabled" >"$GAPS_STATE_FILE"
 else
 	swww img "$WALLPAPER_STATE" --transition-step 15 --transition-fps 120
-	hyprctl keyword general:gaps_in 8
-	hyprctl keyword general:gaps_out 45
-	hyprctl keyword decoration:rounding 8
-	hyprctl keyword general:border_size 3
-	hyprctl keyword general:col.inactive_border "rgba(00000000)"
-	# hyprctl keyword group:col.border_inactive "rgba(20202000)"
-	# hyprctl keyword group:groupbar:col.inactive "rgba(70207000)"
-	hyprctl keyword decoration:active_opacity 0.9
-	hyprctl keyword decoration:inactive_opacity 0.7
-	hyprctl keyword decoration:dim_inactive false
-	hyprctl keyword decoration:blur:enabled true
-	hyprctl keyword decoration:drop_shadow yes
+    hyprctl --batch "\
+        keyword decoration:drop_shadow 1;\
+        keyword decoration:blur:enabled 1;\
+        keyword general:gaps_in 8;\
+        keyword general:gaps_out 45;\
+        keyword general:border_size 3;\
+        keyword general:col.inactive_border rgba(00000000);\
+        keyword decoration:active_opacity 0.9;\
+        keyword decoration:inactive_opacity 0.7;\
+        keyword decoration:dim_inactive 0;\
+        keyword decoration:rounding 8"
 	echo "enabled" >"$GAPS_STATE_FILE"
 fi
