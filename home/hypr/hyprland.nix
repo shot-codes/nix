@@ -15,6 +15,7 @@
         "eDP-1,2560x1600@240.00301,0x0,1"
         "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"
         "desc:Samsung Electric Company C34H89x H4ZT900993, 3440x1440@99.98200, 2560x-800, 1"
+        "desc:Samsung Electric Company S34C65xU HNBWA01486, 3440x1440@99.98200, 2560x-800, 1"
         # "DP-1,2560x1440@59.95,2560x0,1"
       ];
       # plugin = {

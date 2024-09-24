@@ -115,6 +115,7 @@
           };
         };
       };
+      web-devicons.enable = true;
       lsp = {
         enable = true;
         servers = {
