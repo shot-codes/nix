@@ -46,6 +46,10 @@
           clickfinger_behavior = true;
         };
       };
+      device = {
+        name = "usb-keyboard";
+        kb_options = "altwin:swap_alt_win";
+      };
       dwindle = {
         preserve_split = true;
       };
