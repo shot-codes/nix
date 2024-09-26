@@ -68,6 +68,7 @@
     gnumake
     pamixer
     brightnessctl
+    nix-index
   ];
 
   users.users.shot = {
@@ -77,6 +78,8 @@
   nix.settings.trusted-users = ["shot"];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+  programs.nix-ld.enable = true;
 
   security.pam.services.hyprlock = {};
 

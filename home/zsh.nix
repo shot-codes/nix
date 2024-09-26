@@ -16,6 +16,7 @@
         vi = "nvim";
         fastfetch = "fastfetch --logo ~/.config/nixos/media/fastfetch/skull.txt";
         ds = "devbox shell";
+        nix-shell = "nix-shell --run zsh";
       };
       oh-my-zsh = {
         enable = true;
