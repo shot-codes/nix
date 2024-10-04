@@ -71,15 +71,23 @@
     nix-index
   ];
 
+  users.groups.plugdev = {};
   users.users.shot = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "plugdev"];
   };
   nix.settings.trusted-users = ["shot"];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   programs.nix-ld.enable = true;
+
+  # udev rules for crazyflie
+  services.udev.extraRules = ''
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="1915", ATTRS{idProduct}=="7777", MODE="0664", GROUP="plugdev"
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="1915", ATTRS{idProduct}=="0101", MODE="0664", GROUP="plugdev"
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0664", GROUP="plugdev"
+  '';
 
   security.pam.services.hyprlock = {};
 

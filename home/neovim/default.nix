@@ -123,6 +123,7 @@
           svelte.enable = true;
           ts-ls.enable = true;
           ruff.enable = true;
+          pyright.enable = true;
           rust-analyzer = {
             enable = true;
             installRustc = true;
