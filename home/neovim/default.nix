@@ -104,7 +104,7 @@
         enable = true;
         settings = {
           formatters_by_ft = {
-            svelte = ["prettier"];
+                svelte = ["prettier"];
             typsecript = ["prettier"];
             javascript = ["prettier"];
             python = ["ruff_organize_imports" "ruff_format"];
@@ -129,6 +129,7 @@
             installRustc = true;
             installCargo = true;
           };
+          jsonls.enable = true;
         };
         keymaps = {
           diagnostic = {

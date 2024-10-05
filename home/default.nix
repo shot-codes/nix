@@ -27,6 +27,8 @@
     gimp
     thunderbird
     devbox
+    transmission_4-gtk
+    tor-browser-bundle-bin
   ];
 
   programs.fastfetch.enable = true;
