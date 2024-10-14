@@ -29,10 +29,13 @@
     devbox
     transmission_4-gtk
     tor-browser-bundle-bin
+    pass
+    pinentry-curses
   ];
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
+  # programs.gpg.enable = true;
 
   services.copyq.enable = true;
 

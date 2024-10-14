@@ -48,6 +48,9 @@
     ];
 
     plugins = {
+      wrapping = {
+        enable = true;
+      };
       ts-autotag = {
         enable = true;
       };
