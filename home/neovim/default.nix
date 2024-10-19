@@ -48,6 +48,7 @@
     ];
 
     plugins = {
+      which-key.enable = true;
       wrapping = {
         enable = true;
       };
