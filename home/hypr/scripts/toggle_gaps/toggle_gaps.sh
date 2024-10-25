@@ -19,9 +19,12 @@ if [ "$GAPS_STATE" == "enabled" ]; then
         keyword decoration:dim_strength 0.1;\
         keyword decoration:rounding 0"
 	echo "disabled" >"$GAPS_STATE_FILE"
+    sleep 0.1
+    hyprctl "keyword animations:enabled false"
 else
 	swww img "$WALLPAPER_STATE" --transition-step 15 --transition-fps 120
     hyprctl --batch "\
+        keyword animations:enabled true;\
         keyword decoration:drop_shadow 1;\
         keyword decoration:blur:enabled 1;\
         keyword general:gaps_in 8;\

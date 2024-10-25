@@ -29,6 +29,8 @@
     devbox
     transmission_4-gtk
     tor-browser-bundle-bin
+    qgroundcontrol
+    mavproxy
   ];
 
   programs.fastfetch.enable = true;
