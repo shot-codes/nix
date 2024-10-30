@@ -13,6 +13,18 @@
         };
       }
 
+      # Conform
+      {
+        mode = "n";
+        key = "<leader>fm";
+        action = ''
+            <cmd>lua require("conform").format()<cr>
+        '';
+        options = {
+            desc = "Format";
+        };
+      }
+
       # Neotree
       {
         mode = "n";

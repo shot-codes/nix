@@ -112,10 +112,11 @@
             typsecript = ["prettier"];
             javascript = ["prettier"];
             python = ["ruff_organize_imports" "ruff_format"];
-            rust = ["rust-fmt"];
+            rust = ["rustfmt"];
             nix = ["alejandra"];
             json = ["fixjson"];
             yaml = ["yamlfix"];
+            htmldjango = ["djlint"];
           };
         };
       };
