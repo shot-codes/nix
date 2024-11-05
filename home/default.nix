@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./zsh.nix
     ./hypr/hyprland.nix
@@ -19,7 +23,7 @@
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
     swww
-    blender
+    # blender
     wl-clipboard
     trezor-suite
     trezord

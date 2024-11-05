@@ -18,10 +18,10 @@
         mode = "n";
         key = "<leader>fm";
         action = ''
-            <cmd>lua require("conform").format()<cr>
+          <cmd>lua require("conform").format()<cr>
         '';
         options = {
-            desc = "Format";
+          desc = "Format";
         };
       }
 

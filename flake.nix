@@ -20,6 +20,10 @@
       url = "github:hyprwm/hyprlock/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hypridle = {
+      url = "github:hyprwm/hypridle/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -36,7 +40,22 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      system = system;
+      overlays = [
+        (final: prev: {
+          devbox = prev.devbox.overrideAttrs (old: {
+            src = prev.fetchFromGitHub {
+              owner = "jetify-com";
+              repo = "devbox";
+              rev = "0bc66cb8d862ddfc8a43171b6cdf0f7804b6e679";
+              sha256 = "0000000000000000000000000000000000000000000000000000"; # placeholder to fetch hash
+            };
+          });
+        })
+      ];
+    };
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.GLaDOS = nixpkgs.lib.nixosSystem {

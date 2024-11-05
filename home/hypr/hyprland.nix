@@ -10,7 +10,7 @@
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
     settings = {
-      exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server";
+      exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server & hypridle";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
         "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"

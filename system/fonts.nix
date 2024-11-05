@@ -8,6 +8,7 @@
       noto-fonts-emoji
       source-code-pro
       (nerdfonts.override {fonts = ["Iosevka"];})
+      orbitron
     ];
 
     fontconfig = {
