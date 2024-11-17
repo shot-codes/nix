@@ -35,6 +35,8 @@
     tor-browser-bundle-bin
     cargo-shuttle
     cargo-watch
+    qgroundcontrol
+    mavproxy
   ];
 
   programs.fastfetch.enable = true;

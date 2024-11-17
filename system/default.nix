@@ -74,7 +74,7 @@
   users.groups.plugdev = {};
   users.users.shot = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "plugdev"];
+    extraGroups = ["networkmanager" "wheel" "plugdev" "dialout"];
   };
   nix.settings.trusted-users = ["shot"];
   users.defaultUserShell = pkgs.zsh;
