@@ -37,6 +37,7 @@
     cargo-watch
     qgroundcontrol
     mavproxy
+    darktable
   ];
 
   programs.fastfetch.enable = true;
