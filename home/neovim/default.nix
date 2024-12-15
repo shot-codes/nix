@@ -48,6 +48,7 @@
     ];
 
     plugins = {
+      lazy.enable = true;
       which-key.enable = true;
       wrapping = {
         enable = true;
@@ -116,6 +117,7 @@
             nix = ["alejandra"];
             json = ["fixjson"];
             yaml = ["yamlfix"];
+            toml = ["taplo"];
             htmldjango = ["djlint"];
           };
         };
@@ -135,6 +137,7 @@
             installCargo = true;
           };
           jsonls.enable = true;
+          taplo.enable = true;
         };
         keymaps = {
           diagnostic = {

@@ -38,6 +38,7 @@
     qgroundcontrol
     mavproxy
     darktable
+    lazydocker
   ];
 
   programs.fastfetch.enable = true;

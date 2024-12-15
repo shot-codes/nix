@@ -7,7 +7,7 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       source-code-pro
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      nerd-fonts.iosevka
       orbitron
     ];
 

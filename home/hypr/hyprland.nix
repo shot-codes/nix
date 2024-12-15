@@ -7,7 +7,6 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
     settings = {
@@ -70,10 +69,10 @@
         active_opacity = 0.9;
         inactive_opacity = 0.7;
         shadow = {
-            enabled = true;
-            range = 6;
-            render_power = 2;
-            color = "0x44000000";
+          enabled = true;
+          range = 6;
+          render_power = 2;
+          color = "0x44000000";
         };
         blur = {
           enabled = true;
