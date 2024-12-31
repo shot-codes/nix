@@ -16,6 +16,7 @@
         vi = "nvim";
         fastfetch = "fastfetch --logo ~/.config/nixos/media/fastfetch/skull.txt";
         ds = "devbox shell";
+        dr = "devbox run";
         sp = "source .venv/bin/activate";
         nix-shell = "nix-shell --run zsh";
         shuttle = "cargo-shuttle";

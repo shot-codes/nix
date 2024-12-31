@@ -38,7 +38,7 @@
         "col.active_border" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
       };
       input = {
-        sensitivity = 1.0;
+        sensitivity = 0.7;
         repeat_rate = 60;
         repeat_delay = 300;
         touchpad = {
@@ -102,17 +102,13 @@
           "workspaces, 1, 2, default"
         ];
       };
-      windowrule = [
-        "float, title:CopyQ"
-      ];
       windowrulev2 = [
         "noborder, onworkspace:w[t1]"
-      ];
-      blurls = [
-        "waybar"
+        "float, class:com.github.hluk.copyq"
       ];
       layerrule = [
         "xray,waybar"
+        "blur,waybar"
       ];
       # Bindings
       "$mod" = "SUPER";
