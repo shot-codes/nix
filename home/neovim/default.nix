@@ -138,6 +138,8 @@
           };
           jsonls.enable = true;
           taplo.enable = true;
+          solc.enable = true;
+          # nixd.enable = true;
         };
         keymaps = {
           diagnostic = {
@@ -153,6 +155,7 @@
               action = "goto_next";
               desc = "Go to next diagnostic";
             };
+
             "<leader>ld" = {
               action = "open_float";
               desc = "Show Line Diagnostics";

@@ -3,6 +3,9 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    hyprshot
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -28,6 +31,7 @@
       env = [
         "XCURSOR_THEME,phinger-cursors-dark"
         "XCURSOR_SIZE,24"
+        "HYPRSHOT_DIR,/home/shot/Pictures/screenshots"
       ];
       general = {
         border_part_of_window = 0;
@@ -148,6 +152,9 @@
         " , XF86AudioRaiseVolume, exec, pamixer --increase 10"
         "$mod SHIFT, G, exec, /home/shot/.config/nixos/home/hypr/scripts/toggle_gaps/toggle_gaps.sh"
         "$mod SHIFT, T, exec, /home/shot/.config/nixos/home/hypr/scripts/toggle_theme.sh"
+        "$mod SHIFT, PRINT, exec, hyprshot -m window"
+        ", PRINT, exec, hyprshot -m output"
+        "$mod, PRINT, exec, hyprshot -m region"
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
         "$mod, K, movefocus, u"

@@ -23,7 +23,8 @@
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
     swww
-    # blender
+    blender
+    mako
     wl-clipboard
     trezor-suite
     trezord
@@ -35,8 +36,8 @@
     tor-browser-bundle-bin
     cargo-shuttle
     cargo-watch
-    qgroundcontrol
-    mavproxy
+    # qgroundcontrol
+    # mavproxy
     darktable
     lazydocker
   ];
