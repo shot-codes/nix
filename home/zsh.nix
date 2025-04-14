@@ -8,9 +8,17 @@
       enable = true;
       enableCompletion = false; # enabled in oh-my-zsh
       initExtra = ''
-              eval "$(starship init zsh)"
-              eval "$(zoxide init zsh)"
+        eval "$(starship init zsh)"
+        eval "$(zoxide init zsh)"
         eval "$(direnv hook zsh)"
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
       '';
       shellAliases = {
         vi = "nvim";

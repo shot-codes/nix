@@ -41,13 +41,14 @@
         src = pkgs.fetchFromGitHub {
           owner = "shot-codes";
           repo = "alabaster.nvim";
-          rev = "2916f15bfd0f77c2b320f0badd338ea2d00add93";
-          hash = "sha256-1n9APeQK8lFFv5i+6n7ZkBIxHb/M8goXTftDqWVV/i4=";
+          rev = "f2163e98b75a043be5a0b75245954437e009d47d";
+          hash = "sha256-uPE73afRW4kSn0MbWgJMXjOv3LLcN/cDDtsYU7L0gF4=";
         };
       })
     ];
 
     plugins = {
+      markdown-preview.enable = true;
       lazy.enable = true;
       which-key.enable = true;
       wrapping = {
@@ -96,8 +97,13 @@
           "<leader>ff" = "find_files";
         };
       };
-      treesitter.enable = true;
-      treesitter.settings.highlight.enable = true;
+      treesitter = {
+        enable = true;
+        settings = {
+          auto_install = true;
+          highlight.enable = true;
+        };
+      };
       noice.enable = true;
       neo-tree = {
         enable = true;
@@ -119,6 +125,7 @@
             yaml = ["yamlfix"];
             toml = ["taplo"];
             htmldjango = ["djlint"];
+            zig = ["zigfmt"];
           };
         };
       };
@@ -127,6 +134,7 @@
         enable = true;
         servers = {
           nil_ls.enable = true;
+          gleam.enable = true;
           svelte.enable = true;
           ts_ls.enable = true;
           ruff.enable = true;
@@ -138,8 +146,15 @@
           };
           jsonls.enable = true;
           taplo.enable = true;
-          solc.enable = true;
-          # nixd.enable = true;
+          solc = {
+            enable = true;
+            cmd = [
+              "--remappings"
+              "@remappings.txt"
+            ];
+          };
+          zls.enable = true;
+          gopls.enable = true;
         };
         keymaps = {
           diagnostic = {
@@ -213,17 +228,6 @@
       harpoon = {
         enable = true;
         enableTelescope = true;
-        keymapsSilent = true;
-        keymaps = {
-          addFile = "<leader>ha";
-          toggleQuickMenu = "<leader>e";
-          navFile = {
-            "1" = "<leader>hj";
-            "2" = "<leader>hk";
-            "3" = "<leader>hl";
-            "4" = "<leader>hm";
-          };
-        };
       };
     };
   };

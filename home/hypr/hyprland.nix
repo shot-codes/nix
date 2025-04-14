@@ -10,10 +10,10 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
     settings = {
-      exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server & hypridle";
+      exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server & hypridle & swaync";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
         "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"
@@ -21,12 +21,16 @@
         "desc:Samsung Electric Company S34C65xU HNBWA01486, 3440x1440@99.98200, 2560x0, 1"
         # "DP-1,2560x1440@59.95,2560x0,1"
       ];
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          enable_gesture = false;
-          workspace_method = "first 1";
-        };
+      # plugin = {
+      #   hyprexpo = {
+      #     columns = 3;
+      #     enable_gesture = false;
+      #     workspace_method = "first 1";
+      #   };
+      # };
+      ecosystem = {
+        no_update_news = false;
+        no_donation_nag = true;
       };
       env = [
         "XCURSOR_THEME,phinger-cursors-dark"
@@ -34,7 +38,6 @@
         "HYPRSHOT_DIR,/home/shot/Pictures/screenshots"
       ];
       general = {
-        border_part_of_window = 0;
         gaps_in = 8;
         gaps_out = 45;
         border_size = 3;
@@ -61,17 +64,19 @@
         "col.border_active" = "rgba(ffa100ff) rgba(ff2a00ee) 45deg";
         "col.border_inactive" = "rgba(00000000)";
         groupbar = {
-          height = 50;
-          gradients = false;
+          height = 120;
           render_titles = false;
+          rounding = 1;
           "col.active" = "rgba(ffa110ff)";
           "col.inactive" = "rgba(ffa11055)";
         };
       };
       decoration = {
         rounding = 8;
+        rounding_power = 4.0;
         active_opacity = 0.9;
         inactive_opacity = 0.7;
+        border_part_of_window = false;
         shadow = {
           enabled = true;
           range = 6;
@@ -90,6 +95,9 @@
       misc = {
         disable_hyprland_logo = true;
       };
+      # debug = {
+      #   disable_logs = false;
+      # };
       animations = {
         enabled = true;
         bezier = [
@@ -163,16 +171,16 @@
         "$mod ALT, L, movewindow, r"
         "$mod ALT, K, movewindow, u"
         "$mod ALT, J, movewindow, d"
-        "$mod ALT, U, movewindoworgroup, l"
-        "$mod ALT, P, movewindoworgroup, r"
-        "$mod ALT, O, movewindoworgroup, u"
-        "$mod ALT, I, movewindoworgroup, d"
+        "$mod ALT, Y, movewindoworgroup, l"
+        "$mod ALT, O, movewindoworgroup, r"
+        "$mod ALT, I, movewindoworgroup, u"
+        "$mod ALT, U, movewindoworgroup, d"
         "$mod CTRL, G, togglegroup"
         "$mod CTRL, J, changegroupactive, f"
         "$mod CTRL, K, changegroupactive, b"
         "$mod, SPACE, exec, tofi-drun --drun-launch=true"
         "$mod SHIFT, SPACE, exec, tofi-drun | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
-        "$mod, grave, hyprexpo:expo, toggle"
+        # "$mod, grave, hyprexpo:expo, toggle"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"

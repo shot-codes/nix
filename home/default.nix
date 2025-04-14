@@ -24,7 +24,8 @@
   home.packages = with pkgs; [
     swww
     blender
-    mako
+    unityhub
+    swaynotificationcenter
     wl-clipboard
     trezor-suite
     trezord
@@ -36,10 +37,13 @@
     tor-browser-bundle-bin
     cargo-shuttle
     cargo-watch
-    # qgroundcontrol
-    # mavproxy
+    qgroundcontrol
+    mavproxy
     darktable
     lazydocker
+    mods
+    glow
+    yazi
   ];
 
   programs.fastfetch.enable = true;

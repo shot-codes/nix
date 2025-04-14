@@ -38,8 +38,8 @@
     hostName = "GLaDOS";
     networkmanager.enable = true;
     firewall = {
-      enable = false;
-      allowedTCPPorts = [5173 80 443 4040 3000];
+      enable = true;
+      allowedTCPPorts = [80 443 3000 3100 4040 5173 5432 8660 9090 49312];
     };
     hosts = {
       "192.168.0.24" = ["puzzler"];
@@ -82,11 +82,12 @@
 
   programs.nix-ld.enable = true;
 
-  # udev rules for crazyflie
+  # udev rules for crazyflie and px4
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="1915", ATTRS{idProduct}=="7777", MODE="0664", GROUP="plugdev"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="1915", ATTRS{idProduct}=="0101", MODE="0664", GROUP="plugdev"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0664", GROUP="plugdev"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0664", GROUP="plugdev"
   '';
 
   security.pam.services.hyprlock = {};
