@@ -59,7 +59,7 @@
       exec = "openrct2";
       icon = "openrct2";
       terminal = false;
-      categories = [ "Game" "Simulation" ];
+      categories = ["Game" "Simulation"];
     };
   };
 
