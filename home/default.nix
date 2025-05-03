@@ -44,12 +44,24 @@
     mods
     glow
     yazi
+    openrct2
   ];
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
 
   services.copyq.enable = true;
+
+  xdg.desktopEntries = {
+    openrct2 = {
+      name = "OpenRCT2";
+      comment = "An open source re-implementation of RollerCoaster Tycoon 2";
+      exec = "openrct2";
+      icon = "openrct2";
+      terminal = false;
+      categories = [ "Game" "Simulation" ];
+    };
+  };
 
   home.stateVersion = "23.11";
 }
