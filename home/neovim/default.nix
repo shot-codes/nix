@@ -1,7 +1,4 @@
 # Todos
-# - lsp for react/next
-# - formatting for react/next
-# - yank highlight
 # - auto-complete super tab not working in some languages
 {
   pkgs,
@@ -133,8 +130,10 @@
       lsp = {
         enable = true;
         servers = {
+          glsl_analyzer.enable = true;
           nil_ls.enable = true;
           gleam.enable = true;
+          ocamllsp.enable = true;
           svelte.enable = true;
           ts_ls.enable = true;
           ruff.enable = true;

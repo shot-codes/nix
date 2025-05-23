@@ -7,7 +7,7 @@
     zsh = {
       enable = true;
       enableCompletion = false; # enabled in oh-my-zsh
-      initExtra = ''
+      initContent = ''
         eval "$(starship init zsh)"
         eval "$(zoxide init zsh)"
         eval "$(direnv hook zsh)"

@@ -54,10 +54,20 @@
           clickfinger_behavior = true;
         };
       };
-      device = {
-        name = "usb-keyboard";
-        kb_options = "altwin:swap_alt_win";
-      };
+      device = [
+        {
+          name = "usb-keyboard";
+          kb_options = "altwin:swap_alt_win";
+        }
+        {
+          name = "keychron--keychron-k8-version-2";
+          kb_options = "altwin:swap_alt_win";
+        }
+        {
+          name = "keychron--keychron-k8-version-2-keyboard";
+          kb_options = "altwin:swap_alt_win";
+        }
+      ];
       dwindle = {
         preserve_split = true;
       };
