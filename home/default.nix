@@ -22,6 +22,7 @@
   home.username = "shot";
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
+    nemo-with-extensions
     swww
     blender
     unityhub
@@ -51,6 +52,7 @@
   programs.home-manager.enable = true;
 
   services.copyq.enable = true;
+  services.udiskie.enable = true;
 
   xdg.desktopEntries = {
     openrct2 = {

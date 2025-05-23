@@ -805,11 +805,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1748003861,
-        "narHash": "sha256-52csJsvCxH/2iUvwuWXbbk1SHnZMuZ4VRs9K9gvs9nU=",
+        "lastModified": 1748031977,
+        "narHash": "sha256-HVRSGUrpmxIeBz/V13limK3Zdmy4w2MOMWnXq3F1rnk=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "73c1a755f0ac6d09d312daffd13c1ce6572d6fe5",
+        "rev": "4dc8d1e9186d7608545b39e49d64b7ccfaba60dc",
         "type": "github"
       },
       "original": {
