@@ -17,12 +17,12 @@
     # ./tofi.nix
     ./tofi_blur.nix
     ./gtk.nix
+    ./nemo.nix
   ];
 
   home.username = "shot";
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
-    nemo-with-extensions
     swww
     blender
     unityhub
@@ -31,7 +31,7 @@
     trezor-suite
     trezord
     telegram-desktop
-    gimp
+    gimp3
     thunderbird
     devbox
     transmission_4-gtk
@@ -46,6 +46,8 @@
     glow
     yazi
     openrct2
+    libreoffice-qt6-fresh
+    pavucontrol
   ];
 
   programs.fastfetch.enable = true;

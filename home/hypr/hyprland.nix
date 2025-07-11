@@ -67,6 +67,10 @@
           name = "keychron--keychron-k8-version-2-keyboard";
           kb_options = "altwin:swap_alt_win";
         }
+        {
+          name = "-keychron-k8-version-2-keyboard";
+          kb_options = "altwin:swap_alt_win";
+        }
       ];
       dwindle = {
         preserve_split = true;
