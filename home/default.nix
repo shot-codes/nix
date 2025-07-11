@@ -25,7 +25,6 @@
   home.packages = with pkgs; [
     swww
     blender
-    unityhub
     swaynotificationcenter
     wl-clipboard
     trezor-suite
@@ -38,8 +37,6 @@
     tor-browser-bundle-bin
     cargo-shuttle
     cargo-watch
-    qgroundcontrol
-    mavproxy
     darktable
     lazydocker
     mods
