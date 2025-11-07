@@ -5,7 +5,7 @@
       iosevka
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       source-code-pro
       nerd-fonts.iosevka
       orbitron

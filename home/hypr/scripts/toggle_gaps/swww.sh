@@ -8,5 +8,5 @@ if [ "$GAPS_STATE" == "enabled" ]; then
 	echo $1
 	echo $1 >"$WALLPAPER_STATE_FILE"
 	echo $1
-	swww img "$1" --transition-step 10 --transition-duration 3 --transition-fps 60
+	awww img "$1" --transition-step 10 --transition-duration 3 --transition-fps 60
 fi

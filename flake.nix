@@ -29,6 +29,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs = {

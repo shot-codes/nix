@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./completion.nix
     ./keymaps.nix
   ];
@@ -46,7 +46,7 @@
 
     plugins = {
       markdown-preview.enable = true;
-      lazy.enable = true;
+      # lazy.enable = true;
       which-key.enable = true;
       wrapping = {
         enable = true;
@@ -55,7 +55,6 @@
         enable = true;
       };
       yanky.enable = true;
-      treesitter-context.enable = true;
       mini = {
         enable = true;
         modules = {
@@ -101,10 +100,11 @@
           highlight.enable = true;
         };
       };
+      treesitter-context.enable = true;
       noice.enable = true;
       neo-tree = {
         enable = true;
-        window = {
+        settings.window = {
           position = "float";
         };
       };

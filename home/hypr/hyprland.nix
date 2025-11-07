@@ -8,12 +8,12 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
       # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
     settings = {
-      exec-once = "waybar & swww-daemon --format xrgb & copyq --start-server & hypridle & swaync";
+      exec-once = "waybar & awww-daemon --format xrgb & copyq --start-server & hypridle & swaync";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
         "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"

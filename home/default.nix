@@ -23,7 +23,7 @@
   home.username = "shot";
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
-    swww
+    inputs.awww.packages.${pkgs.system}.awww
     blender
     swaynotificationcenter
     wl-clipboard
@@ -34,7 +34,7 @@
     thunderbird
     devbox
     transmission_4-gtk
-    tor-browser-bundle-bin
+    tor-browser
     cargo-shuttle
     cargo-watch
     darktable
@@ -42,7 +42,7 @@
     mods
     glow
     yazi
-    openrct2
+    # openrct2
     libreoffice-qt6-fresh
     pavucontrol
   ];
@@ -53,16 +53,16 @@
   services.copyq.enable = true;
   services.udiskie.enable = true;
 
-  xdg.desktopEntries = {
-    openrct2 = {
-      name = "OpenRCT2";
-      comment = "An open source re-implementation of RollerCoaster Tycoon 2";
-      exec = "openrct2";
-      icon = "openrct2";
-      terminal = false;
-      categories = ["Game" "Simulation"];
-    };
-  };
+  #xdg.desktopEntries = {
+  #  openrct2 = {
+  #    name = "OpenRCT2";
+  #    comment = "An open source re-implementation of RollerCoaster Tycoon 2";
+  #    exec = "openrct2";
+  #    icon = "openrct2";
+  #    terminal = false;
+  #    categories = ["Game" "Simulation"];
+  #  };
+  #};
 
   home.stateVersion = "23.11";
 }
