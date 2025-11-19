@@ -134,8 +134,8 @@
         "float, class:com.github.hluk.copyq"
       ];
       layerrule = [
-        "xray,waybar"
-        "blur,waybar"
+        # "xray,waybar"
+        # "blur,waybar"
       ];
       # Bindings
       "$mod" = "SUPER";

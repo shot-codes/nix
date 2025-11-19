@@ -30,6 +30,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     awww.url = "git+https://codeberg.org/LGFae/awww";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

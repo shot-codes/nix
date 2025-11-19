@@ -13,9 +13,10 @@
     ./kitty.nix
     ./neovim
     ./firefox.nix
-    ./waybar_blur.nix
-    # ./tofi.nix
-    ./tofi_blur.nix
+    ./waybar.nix
+    # ./waybar_blur.nix
+    ./tofi.nix
+    # ./tofi_blur.nix
     ./gtk.nix
     ./nemo.nix
   ];

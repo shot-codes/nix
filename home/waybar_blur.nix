@@ -112,14 +112,17 @@
 
              window#waybar {
                  background-color: rgba(0, 0, 0, 0.2);
+                 opacity: 1.0;
                  color: #cccccc;
                  transition-property: background-color;
                  transition-duration: .5s;
              }
 
+             /*
              window#waybar.hidden {
                  opacity: 0.1;
              }
+             */
 
              button {
                  /* Use box-shadow instead of border so the text isn't offset */

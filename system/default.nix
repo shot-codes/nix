@@ -67,6 +67,7 @@
     git
     git-lfs
     vim
+    libgcc
     gnumake
     pamixer
     brightnessctl
@@ -99,7 +100,11 @@
     enable = true;
     enableSSHSupport = true;
   };
-
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
