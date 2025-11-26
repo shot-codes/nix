@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     profiles = {
@@ -76,9 +79,7 @@
         '';
         # userChrome = (builtins.readFile ./userChrome.css);
         # userContent = (builtins.readFile ./userContent.css);
-
       };
     };
   };
-
 }

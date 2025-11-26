@@ -49,7 +49,7 @@
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.GLaDOS = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = {inherit inputs;};
       modules = [
         ./system/default.nix

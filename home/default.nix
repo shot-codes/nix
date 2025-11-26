@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     inputs.awww.packages.${pkgs.system}.awww
     blender
+    clipse
     swaynotificationcenter
     wl-clipboard
     trezor-suite
@@ -51,7 +52,7 @@
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
 
-  services.copyq.enable = true;
+  # services.copyq.enable = true;
   services.udiskie.enable = true;
 
   #xdg.desktopEntries = {

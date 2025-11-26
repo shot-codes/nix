@@ -68,6 +68,7 @@
     git-lfs
     vim
     libgcc
+    gcc
     gnumake
     pamixer
     brightnessctl

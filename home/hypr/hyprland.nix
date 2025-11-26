@@ -13,7 +13,8 @@
       # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
     settings = {
-      exec-once = "waybar & awww-daemon --format xrgb & copyq --start-server & hypridle & swaync";
+      # exec-once = "waybar & awww-daemon --format xrgb & copyq --start-server & hypridle & swaync";
+      exec-once = "waybar & awww-daemon --format xrgb & clipse --listen & hypridle & swaync";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
         "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"
@@ -129,9 +130,13 @@
           "workspaces, 1, 2, default"
         ];
       };
-      windowrulev2 = [
-        "noborder, onworkspace:w[t1]"
-        "float, class:com.github.hluk.copyq"
+      windowrule = [
+        "float on, match:class clipse"
+        "center on, match:class clipse"
+        "size 600 1000, match:class clipse"
+        "dim_around on, match:class clipse"
+        "stay_focused on, match:class clipse"
+        "border_size 0, match:workspace w[t1]"
       ];
       layerrule = [
         # "xray,waybar"
@@ -163,9 +168,10 @@
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, S, togglesplit"
-        "$mod, O, exec, hyprctl setprop active opaque toggle"
+        "$mod, O, setprop, active opaque toggle"
         "$mod, P, pseudo"
-        "$mod, C, exec, copyq toggle"
+        # "$mod, C, exec, copyq toggle"
+        "$mod, C, exec, kitty --class clipse -e 'clipse'"
         "$mod, F, fullscreen"
         "$mod SHIFT, F, fullscreenstate, 0 3"
         " , XF86MonBrightnessDown, exec, brightnessctl set 10%-"
@@ -194,7 +200,7 @@
         "$mod CTRL, J, changegroupactive, f"
         "$mod CTRL, K, changegroupactive, b"
         "$mod, SPACE, exec, tofi-drun --drun-launch=true"
-        "$mod SHIFT, SPACE, exec, tofi-drun | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
+        "$mod SHIFT, SPACE, exec, tofi-drun --config ~/.config/tofi/nvidia-offload | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
         # "$mod, grave, hyprexpo:expo, toggle"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
