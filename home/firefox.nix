@@ -31,9 +31,9 @@
           "browser.search.suggest.enabled.private" = false;
           "browser.urlbar.suggest.searches" = false;
           "browser.urlbar.showSearchSuggestionsFirst" = false;
-          "browser.sessionstore.enabled" = true;
-          "browser.sessionstore.resume_from_crash" = true;
-          "browser.sessionstore.resume_session_once" = true;
+          # "browser.sessionstore.enabled" = true;
+          # "browser.sessionstore.resume_from_crash" = true;
+          # "browser.sessionstore.resume_session_once" = true;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           # "browser.tabs.drawInTitlebar" = true;
           # "svg.context-properties.content.enabled" = true;

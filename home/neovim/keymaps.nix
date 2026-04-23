@@ -59,11 +59,12 @@
 
       # Neotree
       {
+        action = "<cmd>Neotree reveal toggle<CR>";
+        key = "<leader>t"; # this line is changed
         mode = "n";
-        key = "<leader>t";
-        action = ''
-          <cmd>lua require("neo-tree.command").execute({ toggle = true })<cr>
-        '';
+        options = {
+          desc = "Toggle Tree View.";
+        };
       }
 
       # Windows

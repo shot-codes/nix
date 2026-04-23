@@ -17,10 +17,13 @@
       exec-once = "waybar & awww-daemon --format xrgb & clipse --listen & hypridle & swaync";
       monitor = [
         "eDP-1,2560x1600@240.00301,0x0,1"
+        # "eDP-1,2560x1600@60.00,0x0,1"
+        # "eDP-1,2560x1600@120.0,0x0,1"
         "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"
-        "HDMI-A-1,preferred,auto,1,mirror, eDP-1"
+        # "HDMI-A-1,preferred,auto,1,mirror, eDP-1"
         # "desc:Samsung Electric Company C34H89x H4ZT900993, 3440x1440@99.98200, 2560x-800, 1"
         "desc:Samsung Electric Company S34C65xU HNBWA01486, 3440x1440@99.98200, 2560x0, 1"
+        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@239.99Hz, 2560x-560,1"
         # "DP-1,2560x1440@59.95,2560x0,1"
       ];
       # plugin = {

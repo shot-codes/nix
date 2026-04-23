@@ -104,8 +104,9 @@
       noice.enable = true;
       neo-tree = {
         enable = true;
-        settings.window = {
-          position = "float";
+        settings = {
+          window.position = "float";
+          # filesystem.follow_current_file.enabled = true;
         };
       };
       conform-nvim = {
@@ -115,7 +116,10 @@
             svelte = ["prettier"];
             typsecript = ["prettier"];
             javascript = ["prettier"];
-            python = ["ruff_organize_imports" "ruff_format"];
+            python = [
+              "ruff_organize_imports"
+              "ruff_format"
+            ];
             rust = ["rustfmt"];
             nix = ["alejandra"];
             json = ["fixjson"];

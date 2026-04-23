@@ -17,9 +17,14 @@
     ./trezor.nix
   ];
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.substituters = ["https://hyprland.cachix.org"];
-  nix.settings.trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  nix.settings.trusted-public-keys = [
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  ];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -39,13 +44,32 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [80 443 3000 3100 4040 5173 5432 8660 9090 49312];
+      allowedTCPPorts = [
+        80
+        443
+        3000
+        3100
+        4040
+        5173
+        5432
+        8660
+        9090
+        49312
+      ];
+      allowedUDPPorts = [14540 19410 8888];
+      allowedUDPPortRanges = [
+        {
+          from = 14550;
+          to = 14560;
+        }
+      ];
     };
     hosts = {
-      "192.168.0.24" = ["puzzler"];
-      "192.168.0.102" = ["puzzlerhome"];
+      "127.0.0.1" = ["puzzler"];
     };
   };
+
+  services.gvfs.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -78,13 +102,20 @@
   users.groups.plugdev = {};
   users.users.shot = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "plugdev" "dialout"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "plugdev"
+      "dialout"
+    ];
   };
   nix.settings.trusted-users = ["shot"];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   programs.nix-ld.enable = true;
+
+  programs.qgroundcontrol.enable = true;
 
   # udev rules for crazyflie and px4
   services.udev.extraRules = ''
