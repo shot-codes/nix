@@ -15,7 +15,6 @@
           ublock-origin
           vimium
           duckduckgo-privacy-essentials
-          tree-style-tab
         ];
 
         # http://kb.mozillazine.org/Category:Preferences
@@ -62,6 +61,8 @@
             opacity: 0;
             pointer-events: none;
           }
+
+          .titlebar-buttonbox-container{ display:none }
 
           #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
               visibility: collapse !important;

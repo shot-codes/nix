@@ -7,10 +7,8 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./disk-config.nix
     ./greetd.nix
     ./hyprland.nix
-    ./tuxedo.nix
     ./fonts.nix
     ./nvidia.nix
     ./docker.nix
@@ -26,21 +24,21 @@
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   ];
 
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 9;
-      consoleMode = "max";
-      editor = false;
-    };
-    timeout = 0;
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = false;
+    device = "nodev";
+    useOSProber = true;
   };
 
   time.timeZone = "Europe/Copenhagen";
   i18n.defaultLocale = "en_US.UTF-8";
   networking = {
-    hostName = "GLaDOS";
+    hostName = "HAL";
     networkmanager.enable = true;
     firewall = {
       enable = true;
@@ -126,7 +124,10 @@
   '';
 
   security.pam.services.hyprlock = {};
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  };
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
@@ -153,5 +154,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

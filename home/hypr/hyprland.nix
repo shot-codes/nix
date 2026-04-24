@@ -15,16 +15,16 @@
     settings = {
       # exec-once = "waybar & awww-daemon --format xrgb & copyq --start-server & hypridle & swaync";
       exec-once = "waybar & awww-daemon --format xrgb & clipse --listen & hypridle & swaync";
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "WLR_DRM_DEVICES,/dev/dri/card1"
+        "XCURSOR_THEME,phinger-cursors-dark"
+        "XCURSOR_SIZE,24"
+        "HYPRSHOT_DIR,/home/shot/Pictures/screenshots"
+      ];
       monitor = [
-        "eDP-1,2560x1600@240.00301,0x0,1"
-        # "eDP-1,2560x1600@60.00,0x0,1"
-        # "eDP-1,2560x1600@120.0,0x0,1"
-        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,-2560x0,1"
-        # "HDMI-A-1,preferred,auto,1,mirror, eDP-1"
-        # "desc:Samsung Electric Company C34H89x H4ZT900993, 3440x1440@99.98200, 2560x-800, 1"
-        "desc:Samsung Electric Company S34C65xU HNBWA01486, 3440x1440@99.98200, 2560x0, 1"
-        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@239.99Hz, 2560x-560,1"
-        # "DP-1,2560x1440@59.95,2560x0,1"
+        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@240.00,0x0,1"
       ];
       # plugin = {
       #   hyprexpo = {
@@ -37,11 +37,6 @@
         no_update_news = false;
         no_donation_nag = true;
       };
-      env = [
-        "XCURSOR_THEME,phinger-cursors-dark"
-        "XCURSOR_SIZE,24"
-        "HYPRSHOT_DIR,/home/shot/Pictures/screenshots"
-      ];
       general = {
         gaps_in = 8;
         gaps_out = 45;
@@ -58,24 +53,24 @@
           clickfinger_behavior = true;
         };
       };
-      device = [
-        {
-          name = "usb-keyboard";
-          kb_options = "altwin:swap_alt_win";
-        }
-        {
-          name = "keychron--keychron-k8-version-2";
-          kb_options = "altwin:swap_alt_win";
-        }
-        {
-          name = "keychron--keychron-k8-version-2-keyboard";
-          kb_options = "altwin:swap_alt_win";
-        }
-        {
-          name = "-keychron-k8-version-2-keyboard";
-          kb_options = "altwin:swap_alt_win";
-        }
-      ];
+      #device = [
+      #  {
+      #    name = "usb-keyboard";
+      #    kb_options = "altwin:swap_alt_win";
+      #  }
+      #  {
+      #    name = "keychron--keychron-k8-version-2";
+      #    kb_options = "altwin:swap_alt_win";
+      #  }
+      #  {
+      #    name = "keychron--keychron-k8-version-2-keyboard";
+      #    kb_options = "altwin:swap_alt_win";
+      #  }
+      #  {
+      #    name = "-keychron-k8-version-2-keyboard";
+      #    kb_options = "altwin:swap_alt_win";
+      #  }
+      #];
       dwindle = {
         preserve_split = true;
       };
@@ -170,7 +165,8 @@
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
-        "$mod, S, togglesplit"
+        "$mod, A, layoutmsg, togglesplit"
+        "$mod, S, layoutmsg, swapsplit"
         "$mod, O, setprop, active opaque toggle"
         "$mod, P, pseudo"
         # "$mod, C, exec, copyq toggle"

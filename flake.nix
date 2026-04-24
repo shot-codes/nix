@@ -1,5 +1,5 @@
 {
-  description = "GLaDOS NixOS configuration flake.";
+  description = "HAL NixOS configuration flake.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -48,14 +48,11 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    nixosConfigurations.GLaDOS = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.HAL = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {inherit inputs;};
       modules = [
         ./system/default.nix
-        disko.nixosModules.disko
-        ./system/disk-config.nix
-        {_module.args.disks = ["/dev/nvme0n1"];}
         home-manager.nixosModules.home-manager
         {
           home-manager.extraSpecialArgs = {inherit inputs;};

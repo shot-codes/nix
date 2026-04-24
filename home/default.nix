@@ -19,6 +19,7 @@
     # ./tofi_blur.nix
     ./gtk.nix
     ./nemo.nix
+    ./ghostty.nix
   ];
 
   home.username = "shot";
@@ -47,6 +48,7 @@
     # openrct2
     libreoffice-qt6-fresh
     pavucontrol
+    zed-editor
   ];
 
   programs.fastfetch.enable = true;
@@ -66,5 +68,5 @@
   #  };
   #};
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "25.11";
 }

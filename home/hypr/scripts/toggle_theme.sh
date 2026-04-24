@@ -16,7 +16,7 @@ else
 	# hyprctl keyword general:col.active_border "rgba(33ccffff) rgba(00ff99ff) 45deg"
 	echo "font_family Iosevka NF Bold" >/home/shot/.config/kitty/font.conf
 	kitten themes --reload-in=all --cache-age=-1 --config-file-name /home/shot/.config/kitty/theme.conf Alabaster Custom
-    pkill -SIGUSR1 '.kitty-wrapped'
+	   pkill -SIGUSR1 '.kitty-wrapped'
 	dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
 	dconf write /org/gnome/desktop/interface/gtk-theme "'Materia-light-compact'"
 	# hyprctl keyword general:col.active_border "rgba(00000000)"

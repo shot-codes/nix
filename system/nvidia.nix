@@ -5,31 +5,19 @@
 }: {
   nixpkgs.config.allowUnfree = true;
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # For Broadwell (2015) or newer processors. LIBVA_DRIVER_NAME=iHD
-    ];
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    #WLR_DRM_DEVICES = "/dev/dri/card1";
   };
-  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
-
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = true;
-    open = false;
+    powerManagement.enable = true;
+    open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }

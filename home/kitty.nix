@@ -2,10 +2,10 @@
   programs.kitty = {
     enable = true;
     extraConfig = ''
-         include /home/shot/.config/kitty/theme.conf
+      include /home/shot/.config/kitty/theme.conf
       include /home/shot/.config/kitty/font.conf
-            window_padding_width 4
-            enable_audio_bell no
+      window_padding_width 4
+      enable_audio_bell no
     '';
   };
   home.file.".config/kitty/themes/light.conf" = {
