@@ -5,7 +5,6 @@ GAPS_STATE=$(cat "$GAPS_STATE_FILE")
 WALLPAPER_STATE=$(cat "$WALLPAPER_STATE_FILE")
 
 if [ "$GAPS_STATE" == "enabled" ]; then
-	awww img ~/.config/nixos/media/wallpapers/black.jpg --transition-step 10 --transition-fps 120
     hyprctl --batch "\
         keyword decoration:drop_shadow 0;\
         keyword decoration:blur:enabled 0;\
@@ -21,8 +20,8 @@ if [ "$GAPS_STATE" == "enabled" ]; then
 	echo "disabled" >"$GAPS_STATE_FILE"
     sleep 0.1
     hyprctl "keyword animations:enabled false"
+	awww img ~/.config/nixos/media/wallpapers/black.jpg --transition-step 15 --transition-fps 120
 else
-	awww img "$WALLPAPER_STATE" --transition-step 15 --transition-fps 120
     hyprctl --batch "\
         keyword animations:enabled true;\
         keyword decoration:drop_shadow 1;\
@@ -36,4 +35,5 @@ else
         keyword decoration:dim_inactive 0;\
         keyword decoration:rounding 8"
 	echo "enabled" >"$GAPS_STATE_FILE"
+	awww img "$WALLPAPER_STATE" --transition-step 15 --transition-fps 120
 fi

@@ -8,7 +8,9 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = null;
+    portalPackage = null;
     plugins = [
       # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
@@ -24,7 +26,8 @@
         "HYPRSHOT_DIR,/home/shot/Pictures/screenshots"
       ];
       monitor = [
-        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@240.00,0x0,1"
+        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@240.00,1440x200,1"
+        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,0x0,1,transform,1"
       ];
       # plugin = {
       #   hyprexpo = {
@@ -53,24 +56,28 @@
           clickfinger_behavior = true;
         };
       };
-      #device = [
-      #  {
-      #    name = "usb-keyboard";
-      #    kb_options = "altwin:swap_alt_win";
-      #  }
-      #  {
-      #    name = "keychron--keychron-k8-version-2";
-      #    kb_options = "altwin:swap_alt_win";
-      #  }
-      #  {
-      #    name = "keychron--keychron-k8-version-2-keyboard";
-      #    kb_options = "altwin:swap_alt_win";
-      #  }
-      #  {
-      #    name = "-keychron-k8-version-2-keyboard";
-      #    kb_options = "altwin:swap_alt_win";
-      #  }
-      #];
+      cursor = {
+        inactive_timeout = 0.75;
+        hide_on_key_press = true;
+      };
+      device = [
+        {
+          name = "usb-keyboard";
+          kb_options = "altwin:swap_alt_win";
+        }
+        {
+          name = "keychron--keychron-k8-version-2";
+          kb_options = "altwin:swap_alt_win";
+        }
+        {
+          name = "keychron--keychron-k8-version-2-keyboard";
+          kb_options = "altwin:swap_alt_win";
+        }
+        {
+          name = "-keychron-k8-version-2-keyboard";
+          kb_options = "altwin:swap_alt_win";
+        }
+      ];
       dwindle = {
         preserve_split = true;
       };
@@ -103,7 +110,7 @@
           ignore_opacity = true;
           passes = 3;
           popups = true;
-          xray = true;
+          xray = false;
         };
       };
       misc = {
@@ -152,17 +159,18 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-      "$w1" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/good-times-with-good-friend-wg-2560x1600.jpg";
-      "$w2" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/windmills.jpg";
-      "$w3" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/store.jpg";
-      "$w4" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/girl-smoking.jpg";
-      "$w5" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/feeling-collide-va-2560x1600.jpg";
-      "$w6" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/cityscape-buildings-5k-hn-2560x1600.jpg";
-      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/neon-city-car-view.jpg";
-      "$w8" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/toyota-explorer-in-nature-embrace-br-2560x1600.jpg";
-      "$w9" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/pepe-ascii-art-xr-2560x1600.jpg";
+      "$w1" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract-0.jpg";
+      "$w2" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract-40.jpg";
+      "$w3" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract-80.jpg";
+      "$w4" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract-120.jpg";
+      "$w5" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract-160.jpg";
+      "$w6" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract--160.jpg";
+      "$w7" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract--120.jpg";
+      "$w8" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract--80.jpg";
+      "$w9" = "~/.config/nixos/home/hypr/scripts/toggle_gaps/swww.sh ~/.config/nixos/media/wallpapers/abstract--40.jpg";
       bind = [
-        "$mod, Return, exec, kitty"
+        # "$mod, Return, exec, kitty"
+        "$mod, Return, exec, ghostty --working-directory=/home/shot/"
         "$mod, Q, killactive"
         "$mod, V, togglefloating"
         "$mod, A, layoutmsg, togglesplit"
@@ -199,7 +207,6 @@
         "$mod CTRL, J, changegroupactive, f"
         "$mod CTRL, K, changegroupactive, b"
         "$mod, SPACE, exec, tofi-drun --drun-launch=true"
-        "$mod SHIFT, SPACE, exec, tofi-drun --config ~/.config/tofi/nvidia-offload | awk '{sub(/ --name.*/, \"\"); print}' | xargs hyprctl dispatch exec nvidia-offload "
         # "$mod, grave, hyprexpo:expo, toggle"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"

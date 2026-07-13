@@ -85,6 +85,8 @@
 
   services.udisks2.enable = true;
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   environment.systemPackages = with pkgs; [
     git
     git-lfs
@@ -95,6 +97,7 @@
     pamixer
     brightnessctl
     nix-index
+    openrgb
   ];
 
   users.groups.plugdev = {};
@@ -122,6 +125,11 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0664", GROUP="plugdev"
     SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0664", GROUP="plugdev"
   '';
+
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+  };
 
   security.pam.services.hyprlock = {};
   xdg.portal = {

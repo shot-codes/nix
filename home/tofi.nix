@@ -34,26 +34,4 @@
       selection-color = "#ffffff";
     };
   };
-
-  xdg.configFile."tofi/nvidia-offload".text = ''
-    anchor = bottom-left
-    font = monospace
-    corner-radius = 6
-    horizontal = true
-    font-size = 10
-    padding-top = 3
-    padding-bottom = 0
-    margin-bottom = 4
-    margin-left = 185
-    prompt-text = "-> "
-    outline-width = 0
-    border-width = 2
-    border-color = #76b900
-    result-spacing = 14
-    width = 800
-    height = 30
-    background-color = #000000ff
-    text-color = #ffffff
-    selection-color = #76b900
-  '';
 }

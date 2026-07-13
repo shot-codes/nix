@@ -13,6 +13,7 @@
     ./kitty.nix
     ./neovim
     ./firefox.nix
+    ./brave.nix
     ./waybar.nix
     # ./waybar_blur.nix
     ./tofi.nix
@@ -20,6 +21,7 @@
     ./gtk.nix
     ./nemo.nix
     ./ghostty.nix
+    ./zed.nix
   ];
 
   home.username = "shot";
@@ -48,12 +50,11 @@
     # openrct2
     libreoffice-qt6-fresh
     pavucontrol
-    zed-editor
+    prusa-slicer
   ];
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
-
   # services.copyq.enable = true;
   services.udiskie.enable = true;
 
