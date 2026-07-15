@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./sops.nix
     ./greetd.nix
     ./hyprland.nix
     ./fonts.nix
@@ -120,6 +121,8 @@
     openrgb
     mullvad-vpn
     qemu
+    sops
+    age
   ];
 
   users.groups.plugdev = {};

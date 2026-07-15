@@ -12,7 +12,6 @@
     ./hypr/hypridle.nix
     ./kitty.nix
     ./neovim
-    ./firefox.nix
     ./brave.nix
     ./waybar.nix
     # ./waybar_blur.nix
