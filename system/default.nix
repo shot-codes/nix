@@ -19,9 +19,15 @@
     "nix-command"
     "flakes"
   ];
-  nix.settings.substituters = ["https://hyprland.cachix.org"];
+  nix.settings.substituters = [
+    "https://hyprland.cachix.org"
+    "https://pi.cachix.org"
+    "https://nix-community.cachix.org"
+  ];
   nix.settings.trusted-public-keys = [
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    "pi.cachix.org-1:lGeoGJaZ5ZDabuRzkcD5EBTNnDM4HJ1vqeOxlWk1Flk="
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
 
   boot.loader.systemd-boot.enable = false;
@@ -39,7 +45,10 @@
   i18n.defaultLocale = "en_US.UTF-8";
   networking = {
     hostName = "HAL";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
     firewall = {
       enable = true;
       allowedTCPPorts = [
@@ -54,7 +63,11 @@
         9090
         49312
       ];
-      allowedUDPPorts = [14540 19410 8888];
+      allowedUDPPorts = [
+        14540
+        19410
+        8888
+      ];
       allowedUDPPortRanges = [
         {
           from = 14550;
@@ -65,6 +78,13 @@
     hosts = {
       "127.0.0.1" = ["puzzler"];
     };
+  };
+
+  services.resolved.enable = true;
+
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
   };
 
   services.gvfs.enable = true;
@@ -98,6 +118,8 @@
     brightnessctl
     nix-index
     openrgb
+    mullvad-vpn
+    qemu
   ];
 
   users.groups.plugdev = {};
