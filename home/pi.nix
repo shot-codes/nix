@@ -12,7 +12,7 @@
     enable = true;
 
     # opt into the Bun-built package instead of the npm-built default
-    package = inputs.pi.packages.${pkgs.system}.coding-agent-bun;
+    # package = inputs.pi.packages.${pkgs.system}.coding-agent-bun;
 
     # appended to the system prompt
     # rules = ''

@@ -21,6 +21,7 @@
     ./nemo.nix
     ./ghostty.nix
     ./zed.nix
+    ./pi.nix
   ];
 
   home.username = "shot";
@@ -50,6 +51,7 @@
     libreoffice-qt6-fresh
     pavucontrol
     prusa-slicer
+    nodejs_24
   ];
 
   programs.fastfetch.enable = true;

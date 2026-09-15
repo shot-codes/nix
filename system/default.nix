@@ -14,6 +14,7 @@
     ./nvidia.nix
     ./docker.nix
     ./trezor.nix
+    ./ollama.nix
   ];
 
   nix.settings.experimental-features = [

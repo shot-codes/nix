@@ -26,8 +26,8 @@
         "HYPRSHOT_DIR,/home/shot/Pictures/screenshots"
       ];
       monitor = [
-        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@240.00,1440x200,1"
-        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,0x0,1,transform,1"
+        "desc:Dell Inc. AW3225QF FGB8YZ3,3840x2160@240.00,0x0,1"
+        "desc:AOC Q2790 GQMJ7HA001233,2560x1440@59.95,3840x-200,1,transform,1"
       ];
       # plugin = {
       #   hyprexpo = {
