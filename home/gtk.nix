@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt6ct";
@@ -18,9 +22,12 @@
 
   gtk = {
     enable = true;
+    gtk4.theme = null;
     theme = {
-      name = "Materia-dark-compact";
-      package = pkgs.materia-theme;
+      # name = "adw-gtk3-dark";
+      # package = pkgs.adw-gtk3;
+      name = "Orchis-Dark-Compact";
+      package = pkgs.orchis-theme;
     };
     cursorTheme = {
       name = "phinger-cursors";
@@ -31,6 +38,6 @@
 
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
-    gtk-theme = "Materia-dark-compact";
+    gtk-theme = config.gtk.theme.name;
   };
 }

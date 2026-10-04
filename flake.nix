@@ -23,7 +23,6 @@
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     awww.url = "git+https://codeberg.org/LGFae/awww";
     pi.url = "github:lukasl-dev/pi.nix";

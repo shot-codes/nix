@@ -48,7 +48,7 @@
     glow
     yazi
     # openrct2
-    libreoffice-qt6-fresh
+    libreoffice-qt
     pavucontrol
     prusa-slicer
     nodejs_24
