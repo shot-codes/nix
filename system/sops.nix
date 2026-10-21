@@ -9,5 +9,5 @@
   };
 }
 # Use elsewhere in config with:
-# sops.secrets."example-key".path
+# sops.secrets."example_key".path
 
