@@ -9,6 +9,9 @@
       window-padding-x = 6;
       window-padding-y = 3;
       app-notifications = ["no-config-reload"];
+      keybind = [
+        "ctrl+enter=unbind"
+      ];
     };
   };
 }

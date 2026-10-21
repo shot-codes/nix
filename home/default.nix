@@ -52,6 +52,7 @@
     pavucontrol
     prusa-slicer
     nodejs_24
+    signal-desktop
   ];
 
   programs.fastfetch.enable = true;

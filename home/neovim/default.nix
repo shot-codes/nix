@@ -134,6 +134,7 @@
       lsp = {
         enable = true;
         servers = {
+          elixirls.enable = true;
           glsl_analyzer.enable = true;
           nil_ls.enable = true;
           gleam.enable = true;

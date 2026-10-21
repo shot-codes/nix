@@ -49,6 +49,7 @@ hl.config({
     },
 
     input = {
+        kb_options = "altwin:swap_alt_win",
         sensitivity  = 0.7,
         repeat_rate  = 60,
         repeat_delay = 300,
@@ -113,16 +114,6 @@ hl.config({
         enabled = true,
     },
 })
-
----------------- DEVICES ----------------
--- for _, name in ipairs({
---     "usb-keyboard",
---     "keychron--keychron-k8-version-2",
---     "keychron--keychron-k8-version-2-keyboard",
---     "-keychron-k8-version-2-keyboard",
--- }) do
---     hl.device({ name = name, kb_options = "altwin:swap_alt_win" })
--- end
 
 ---------------- ANIMATIONS ----------------
 hl.curve("bezier1", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.0 } } })
