@@ -1,6 +1,14 @@
 # NixOS Configuration
 
-This repo contains my nixos configuration.
+This repo contains my nixos configuration for two hosts:
+
+- `HAL`: AMD desktop with Nvidia GPU, ext4, GRUB.
+- `GLaDOS`: Intel/Tuxedo laptop with Nvidia PRIME offload, LUKS + btrfs via disko, systemd-boot.
+
+Shared config lives in `system/` and `home/`. Hardware and host-specific config (hardware
+configuration, GPU, bootloader, disks, monitor layout, hostName, stateVersion) lives in `hosts/<host>/`.
+
+Rebuild with `sudo nixos-rebuild switch --flake ~/.config/nixos#<HAL|GLaDOS>`.
 
 Sometimes Windows decides to take a shit on my linux drive, in which case do the following:
 

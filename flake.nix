@@ -1,8 +1,12 @@
 {
-  description = "HAL NixOS configuration flake.";
+  description = "NixOS configuration flake for HAL and GLaDOS.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,30 +39,40 @@
   outputs = {
     self,
     nixpkgs,
+    disko,
     home-manager,
     nixvim,
     sops-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    mkHost = host: extraModules:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules =
+          [
+            ./hosts/${host}
+            sops-nix.nixosModules.sops
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {inherit inputs;};
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.shot.imports = [
+                ./home/default.nix
+                ./hosts/${host}/home.nix
+              ];
+              home-manager.backupFileExtension = "backup";
+            }
+          ]
+          ++ extraModules;
+      };
   in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    nixosConfigurations.HAL = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./system/default.nix
-        sops-nix.nixosModules.sops
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs = {inherit inputs;};
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.shot = import ./home/default.nix;
-          home-manager.backupFileExtension = "backup";
-        }
-      ];
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    nixosConfigurations = {
+      HAL = mkHost "hal" [];
+      GLaDOS = mkHost "glados" [disko.nixosModules.disko];
     };
   };
 }

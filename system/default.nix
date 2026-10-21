@@ -6,15 +6,12 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
     ./sops.nix
     ./greetd.nix
     ./hyprland.nix
     ./fonts.nix
-    ./nvidia.nix
     ./docker.nix
     ./trezor.nix
-    ./ollama.nix
   ];
 
   nix.settings.experimental-features = [
@@ -32,21 +29,9 @@
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
 
-  boot.loader.systemd-boot.enable = false;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    efiInstallAsRemovable = false;
-    device = "nodev";
-    useOSProber = true;
-  };
-
   time.timeZone = "Europe/Copenhagen";
   i18n.defaultLocale = "en_US.UTF-8";
   networking = {
-    hostName = "HAL";
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
@@ -142,11 +127,6 @@
 
   programs.nix-ld.enable = true;
 
-  services.hardware.openrgb = {
-    enable = true;
-    motherboard = "amd";
-  };
-
   security.pam.services.hyprlock = {};
   xdg.portal = {
     enable = true;
@@ -162,21 +142,4 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
 }
