@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./completion.nix
@@ -113,20 +114,20 @@
         enable = true;
         settings = {
           formatters_by_ft = {
-            svelte = ["prettier"];
-            typsecript = ["prettier"];
-            javascript = ["prettier"];
+            svelte = [ "prettier" ];
+            typsecript = [ "prettier" ];
+            javascript = [ "prettier" ];
             python = [
               "ruff_organize_imports"
               "ruff_format"
             ];
-            rust = ["rustfmt"];
-            nix = ["alejandra"];
-            json = ["fixjson"];
-            yaml = ["yamlfix"];
-            toml = ["taplo"];
-            htmldjango = ["djlint"];
-            zig = ["zigfmt"];
+            rust = [ "rustfmt" ];
+            nix = [ "alejandra" ];
+            json = [ "fixjson" ];
+            yaml = [ "yamlfix" ];
+            toml = [ "taplo" ];
+            htmldjango = [ "djlint" ];
+            zig = [ "zigfmt" ];
           };
         };
       };
@@ -141,7 +142,16 @@
           svelte.enable = true;
           ts_ls.enable = true;
           ruff.enable = true;
-          pyright.enable = true;
+          basedpyright.enable = true;
+          # pyright.enable = true;
+          # pylsp = {
+          #   enable = true;
+          #   settings.plugins.pylsp_mypy = {
+          #     enabled = true;
+          #     live_mode = false; # or true if you want as-you-type, at a perf cost
+          #     dmypy = true; # trade live_mode for daemon speed
+          #   };
+          # };
           rust_analyzer = {
             enable = true;
             installRustc = true;

@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ./disk-config.nix
@@ -21,7 +22,7 @@
     "nix-command"
     "flakes"
   ];
-  nix.settings.substituters = ["https://hyprland.cachix.org"];
+  nix.settings.substituters = [ "https://hyprland.cachix.org" ];
   nix.settings.trusted-public-keys = [
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   ];
@@ -56,7 +57,11 @@
         9090
         49312
       ];
-      allowedUDPPorts = [14540 19410 8888];
+      allowedUDPPorts = [
+        14540
+        19410
+        8888
+      ];
       allowedUDPPortRanges = [
         {
           from = 14550;
@@ -65,11 +70,16 @@
       ];
     };
     hosts = {
-      "127.0.0.1" = ["puzzler"];
+      "127.0.0.1" = [ "puzzler" ];
     };
   };
 
   services.gvfs.enable = true;
+
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn; # note: mullvad-vpn, not mullvad
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -78,6 +88,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  hardware.usb-modeswitch.enable = true;
 
   hardware.bluetooth = {
     enable = true;
@@ -99,7 +111,7 @@
     nix-index
   ];
 
-  users.groups.plugdev = {};
+  users.groups.plugdev = { };
   users.users.shot = {
     isNormalUser = true;
     extraGroups = [
@@ -107,13 +119,16 @@
       "wheel"
       "plugdev"
       "dialout"
+      "adbusers"
+      "kvm"
     ];
   };
-  nix.settings.trusted-users = ["shot"];
+  nix.settings.trusted-users = [ "shot" ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   programs.nix-ld.enable = true;
+  programs.adb.enable = true;
 
   programs.qgroundcontrol.enable = true;
 
@@ -125,7 +140,7 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0664", GROUP="plugdev"
   '';
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {

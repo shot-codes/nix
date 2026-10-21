@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     inputs.awww.packages.${pkgs.system}.awww
     blender
+    obsidian
     clipse
     swaynotificationcenter
     wl-clipboard
@@ -47,10 +48,13 @@
     # openrct2
     libreoffice-qt6-fresh
     pavucontrol
+    libspatialite
+    gdal
   ];
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
+
 
   # services.copyq.enable = true;
   services.udiskie.enable = true;
