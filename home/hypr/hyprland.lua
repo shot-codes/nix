@@ -1,7 +1,7 @@
 local mod = "SUPER"
 local home = os.getenv("HOME")
 
--- Monitors and GPU env are per host, see hosts/<host>/hyprland.lua
+-- Monitors, GPU env and keyboard options are per host, see hosts/<host>/hyprland.lua
 
 ---------------- ENVIRONMENT ----------------
 hl.env("XCURSOR_THEME", "phinger-cursors-dark")
@@ -33,7 +33,6 @@ hl.config({
     },
 
     input = {
-        kb_options = "altwin:swap_alt_win",
         sensitivity  = 0.7,
         repeat_rate  = 60,
         repeat_delay = 300,

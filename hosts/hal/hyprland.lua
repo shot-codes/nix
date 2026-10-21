@@ -17,3 +17,10 @@ hl.monitor({
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("WLR_DRM_DEVICES", "/dev/dri/card1")
+
+---------------- INPUT ----------------
+hl.config({
+    input = {
+        kb_options = "altwin:swap_alt_win",
+    },
+})
