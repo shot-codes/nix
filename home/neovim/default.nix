@@ -16,6 +16,8 @@
 
   programs.nixvim = {
     enable = true;
+    # Explicit to silence the follows-mismatch warning; this is what nixvim uses anyway.
+    nixpkgs.source = inputs.nixvim.inputs.nixpkgs;
     viAlias = true;
     defaultEditor = true;
     colorscheme = "alabaster";

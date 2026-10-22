@@ -27,7 +27,7 @@
   home.username = "shot";
   home.homeDirectory = "/home/shot";
   home.packages = with pkgs; [
-    inputs.awww.packages.${pkgs.system}.awww
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     blender
     clipse
     swaynotificationcenter

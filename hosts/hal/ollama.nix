@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   cudaPkgs = import pkgs.path {
-    inherit (pkgs) system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
     config.cudaSupport = true;
   };

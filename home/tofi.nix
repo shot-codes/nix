@@ -22,7 +22,7 @@
       padding-top = 3;
       padding-bottom = 0;
       margin-bottom = 6;
-      margin-left = 185;
+      margin-left = 224;
       prompt-text = ''"-> "'';
       outline-width = 0;
       border-width = 0;
