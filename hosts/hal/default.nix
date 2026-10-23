@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ../../system
     ./hardware-configuration.nix
@@ -18,6 +18,8 @@
     device = "nodev";
     useOSProber = true;
   };
+
+  environment.systemPackages = [pkgs.efibootmgr];
 
   services.hardware.openrgb = {
     enable = true;
