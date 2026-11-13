@@ -7,6 +7,7 @@ local home = os.getenv("HOME")
 hl.env("XCURSOR_THEME", "phinger-cursors-dark")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRSHOT_DIR", home .. "/Pictures/screenshots")
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
 
 ---------------- AUTOSTART ----------------
 hl.on("hyprland.start", function()
@@ -17,6 +18,9 @@ end)
 local accent = { colors = { "rgba(ffa100ff)", "rgba(ff2a00ee)" }, angle = 45 }
 
 hl.config({
+    render = {
+        cm_auto_hdr = 0;
+    },
     ecosystem = {
         no_update_news  = false,
         no_donation_nag = true,

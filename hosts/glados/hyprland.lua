@@ -23,3 +23,6 @@ hl.monitor({
     position = "2560x-560",
     scale    = "1",
 })
+
+---------------- KEYBINDS ----------------
+hl.bind("SUPER + SHIFT + space", hl.dsp.exec_cmd([[cmd=$(tofi-drun --config ~/.config/tofi/nvidia-offload | sed -e 's/ --name.*//' -e 's/ %[A-Za-z]//g'); [ -n "$cmd" ] && exec nvidia-offload sh -c "$cmd"]]))
