@@ -1,3 +1,8 @@
+# When the Windows XP theme (home/themes/xp) is active it provides its own toggle.
+if command -v xp-toggle-theme >/dev/null; then
+	exec xp-toggle-theme
+fi
+
 PREFERS=$(dconf read /org/gnome/desktop/interface/color-scheme | tr -d "'")
 
 if [ "$PREFERS" == "prefer-light" ]; then

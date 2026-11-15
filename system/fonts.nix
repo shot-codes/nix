@@ -9,6 +9,8 @@
       source-code-pro
       nerd-fonts.iosevka
       orbitron
+      corefonts # Trebuchet MS (XP title bars)
+      wine64Packages.fonts # Tahoma clone (XP UI font)
     ];
 
     fontconfig = {

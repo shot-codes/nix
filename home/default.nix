@@ -18,6 +18,7 @@
     ./tofi.nix
     # ./tofi_blur.nix
     ./gtk.nix
+    ./themes/xp # Windows XP look; remove this line to go back
     ./nemo.nix
     ./ghostty.nix
     ./zed.nix
