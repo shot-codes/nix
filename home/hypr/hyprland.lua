@@ -8,6 +8,7 @@ hl.env("XCURSOR_THEME", "phinger-cursors-dark")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRSHOT_DIR", home .. "/Pictures/screenshots")
 hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
+hl.env("QT_WAYLAND_DISABLED_INTERFACES", "ext_background_effect_manager_v1")
 
 ---------------- AUTOSTART ----------------
 hl.on("hyprland.start", function()

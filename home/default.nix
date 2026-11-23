@@ -53,6 +53,8 @@
     prusa-slicer
     nodejs_24
     signal-desktop
+    bubblewrap
+    socat
   ];
 
   programs.fastfetch.enable = true;
