@@ -16,6 +16,11 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    # hyprland-master branch tracks Hyprland main; follows keeps plugin and compositor on the same revision.
+    hyprcapture = {
+      url = "github:gfhdhytghd/HyprCapture/hyprland-master";
+      inputs.hyprland.follows = "hyprland";
+    };
     hyprlock = {
       url = "github:hyprwm/hyprlock/";
       inputs.nixpkgs.follows = "nixpkgs";

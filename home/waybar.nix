@@ -1,4 +1,31 @@
-{...}: {
+{pkgs, ...}: let
+  # Run by Waybar once a second. HyprCapture's state socket only answers when asked
+  # (one JSON line per connect, no change events), so polling is the only option.
+  # Idle ticks are a single socat call; jq only runs while recording.
+  # Empty text hides the module.
+  hyprcaptureStatus = pkgs.writeShellApplication {
+    name = "waybar-hyprcapture-status";
+    runtimeInputs = [pkgs.socat pkgs.jq];
+    text = ''
+      sock="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/hyprcapture/recording.sock"
+      state=$(socat -T1 - UNIX-CONNECT:"$sock" 2>/dev/null) || state=""
+      if [ -z "$state" ] || [[ $state == *'"phase":"inactive"'* ]]; then
+        echo '{"text":""}'
+        exit 0
+      fi
+      jq -c '
+        def mmss: (. / 1000 | floor) as $s | "\($s / 60 | floor):\(if $s % 60 < 10 then "0" else "" end)\($s % 60)";
+        if .phase == "recording" then
+          {text: "REC \(.elapsedMs | mmss)", class: "recording", tooltip: "Recording \(.mode) (\(.backend))\n\(.output)\nClick to open HyprCapture"}
+        elif .phase == "finalizing" then
+          {text: "SAVING", class: "finalizing", tooltip: "Finalizing \(.output)"}
+        else
+          {text: ""}
+        end
+      ' <<<"$state"
+    '';
+  };
+in {
   programs.waybar = {
     enable = true;
     settings = {
@@ -9,7 +36,7 @@
         spacing = 4;
         # modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-left = ["hyprland/workspaces"];
-        modules-right = ["tray" "pulseaudio" "network" "cpu" "temperature" "memory" "backlight" "battery" "custom/swaylock" "clock" "idle_inhibitor"];
+        modules-right = ["custom/recording" "tray" "pulseaudio" "network" "cpu" "temperature" "memory" "backlight" "battery" "custom/swaylock" "clock" "idle_inhibitor"];
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
@@ -31,6 +58,13 @@
         "hyprland/window" = {
           max-length = 800;
           separate-outputs = true;
+        };
+        "custom/recording" = {
+          exec = "${hyprcaptureStatus}/bin/waybar-hyprcapture-status";
+          return-type = "json";
+          interval = 1;
+          # Click opens the HyprCapture overlay; click its checked record icon to stop.
+          on-click = "hyprctl eval 'hl.plugin.hyprcapture.open()'";
         };
         "custom/swaylock" = {
           format = "LCK";
@@ -230,6 +264,19 @@
         		background-color: #df0000;
         		color: #000;
       }
+
+            #custom-recording {
+              padding-left: 7px;
+              padding-right: 7px;
+              border-radius: 6px;
+              border: 3px solid black;
+            }
+            #custom-recording.recording {
+              color: #df0000;
+            }
+            #custom-recording.finalizing {
+              color: #ffa100;
+            }
 
             #pulseaudio {
 

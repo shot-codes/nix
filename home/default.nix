@@ -31,6 +31,7 @@
     blender
     clipse
     swaynotificationcenter
+    libnotify
     wl-clipboard
     trezor-suite
     trezord
@@ -47,7 +48,6 @@
     mods
     glow
     yazi
-    # openrct2
     libreoffice-qt
     pavucontrol
     prusa-slicer
@@ -59,17 +59,5 @@
 
   programs.fastfetch.enable = true;
   programs.home-manager.enable = true;
-  # services.copyq.enable = true;
   services.udiskie.enable = true;
-
-  #xdg.desktopEntries = {
-  #  openrct2 = {
-  #    name = "OpenRCT2";
-  #    comment = "An open source re-implementation of RollerCoaster Tycoon 2";
-  #    exec = "openrct2";
-  #    icon = "openrct2";
-  #    terminal = false;
-  #    categories = ["Game" "Simulation"];
-  #  };
-  #};
 }

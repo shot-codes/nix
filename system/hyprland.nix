@@ -20,4 +20,8 @@ in {
     #   inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     # ];
   };
+
+  # HyprCapture records fullscreen/region video with gpu-screen-recorder when it's installed.
+  # The module also adds the setcap wrapper for gsr-kms-server, so recording needs no password prompt.
+  programs.gpu-screen-recorder.enable = true;
 }

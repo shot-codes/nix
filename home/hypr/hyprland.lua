@@ -6,7 +6,6 @@ local home = os.getenv("HOME")
 ---------------- ENVIRONMENT ----------------
 hl.env("XCURSOR_THEME", "phinger-cursors-dark")
 hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRSHOT_DIR", home .. "/Pictures/screenshots")
 hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")
 hl.env("QT_WAYLAND_DISABLED_INTERFACES", "ext_background_effect_manager_v1")
 
@@ -162,10 +161,16 @@ hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("pamixer --increase 10"))
 hl.bind(key("SHIFT + G"), hl.dsp.exec_cmd(scripts .. "/toggle_gaps/toggle_gaps.sh"))
 hl.bind(key("SHIFT + T"), hl.dsp.exec_cmd(scripts .. "/toggle_theme.sh"))
 
--- Screenshots
-hl.bind(key("SHIFT + Print"), hl.dsp.exec_cmd("hyprshot -m window"))
-hl.bind("Print",              hl.dsp.exec_cmd("hyprshot -m output"))
-hl.bind(key("Print"),         hl.dsp.exec_cmd("hyprshot -m region"))
+-- Screenshots (HyprCapture plugin, loaded by Home Manager before this file runs)
+hl.config({ plugin = { hyprcapture = {
+  save_dir = home .. "/Pictures/screenshots",
+  -- Record windows with gpu-screen-recorder too (captures the visible screen area, so overlapping windows show up).
+  record_window_backend = "gsr-visible",
+} } })
+-- Closures so the plugin table is only looked up on keypress.
+hl.bind(key("SHIFT + Print"), function() hl.plugin.hyprcapture.open("window") end)
+hl.bind("Print",              function() hl.plugin.hyprcapture.open("fullscreen") end)
+hl.bind(key("Print"),         function() hl.plugin.hyprcapture.open_editor("region") end)
 
 -- Focus / move (vim keys)
 local dirs = { H = "left", L = "right", K = "up", J = "down" }

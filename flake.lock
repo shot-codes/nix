@@ -228,6 +228,37 @@
         "type": "github"
       }
     },
+    "hyprcapture": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyprcapture",
+          "hyprland",
+          "nixpkgs"
+        ],
+        "systems": [
+          "hyprcapture",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795436908,
+        "narHash": "sha256-RoT+kLwv6vnDj7dXVVmMpYWZp6lrC/DSTzWi+XoBTxA=",
+        "owner": "gfhdhytghd",
+        "repo": "HyprCapture",
+        "rev": "73f9055d2d2b2bd2524343a09f047797474cacb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gfhdhytghd",
+        "ref": "hyprland-master",
+        "repo": "HyprCapture",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -1022,6 +1053,7 @@
         "awww": "awww",
         "disko": "disko",
         "home-manager": "home-manager",
+        "hyprcapture": "hyprcapture",
         "hyprcursor-phinger": "hyprcursor-phinger",
         "hypridle": "hypridle",
         "hyprland": "hyprland",

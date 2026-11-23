@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    hyprshot
-  ];
   wayland.windowManager.hyprland = {
     configType = "lua";
     enable = true;
@@ -13,6 +10,7 @@
     package = null;
     portalPackage = null;
     plugins = [
+      inputs.hyprcapture.packages.${pkgs.stdenv.hostPlatform.system}.hyprcapture
       # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
     extraConfig = builtins.readFile ./hyprland.lua;
